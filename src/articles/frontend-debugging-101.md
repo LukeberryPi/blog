@@ -3,13 +3,16 @@ title: "Frontend Debugging 101"
 date: "23-07-2024"
 ---
 
+> I have created a website with a checkbox for every one of these steps. \
+Check it out here: [https://frontend-debugging-101.vercel.app](https://frontend-debugging-101.vercel.app/)
+
 I believe the cliché "there are no dumb questions". I even created a [website](https://possoperguntar.com.br) that is the Portuguese equivalent of [dontasktoask.com](https://dontasktoask.com). I heavily encourage asking in public and learning to formulate questions.
 
 However, solving your own problems in software is the unlock for progress. The more you do it, the more errors you instantly recognize and the faster you will move.
 
 In my first programming job, I would often call colleagues in despair with errors in my code, only for them to solve it in seconds. Even though my questions weren't "dumb" _per se_, I felt silly since the solution was that simple.
 
-If you're a beginner, you will face these situations a lot. It is completely natural,  and more experienced people won't mind. As long as you learn from your mistakes and don't repeat them.
+If you're a beginner, you will face these situations a lot. It is completely natural, and more experienced people won't mind. As long as you learn from your mistakes and don't repeat them.
 
 Here is a list of steps I take before asking other people for help. It will range from very simple to medium-effort steps for debugging. I also added my usual time spent with each step.
 
