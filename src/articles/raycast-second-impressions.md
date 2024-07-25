@@ -1,6 +1,6 @@
 ---
 title: "Raycast: Second Impressions"
-date: "15-07-2024"
+date: "2024-07-15"
 ---
 
 When I first bought a MacBook, I came across Alfred: an app launcher to replace Apple's Spotlight. What I liked the most was:
