@@ -4,6 +4,7 @@ import path from "path";
 import moment from "moment";
 import { remark } from "remark";
 import html from "remark-html";
+import { highlight } from "sugar-high";
 
 export type Article = {
   id: string;
@@ -50,7 +51,6 @@ export const getArticleData = async (id: string) => {
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
-
   return {
     id,
     contentHtml,
