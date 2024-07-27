@@ -6,8 +6,8 @@ import "./globals.css";
 import { ScrollToTop } from "../components/scroll-to-top";
 
 export const metadata: Metadata = {
-  title: "LukeberryPi's Blog",
-  description: "LukberryPi's Blog",
+  title: "Caihe's Blog",
+  description: "Caihe's Blog",
 };
 
 const karla = Karla({
@@ -26,7 +26,7 @@ export default function RootLayout({
         <header className="max-w-prose mx-auto mb-8">
           <nav className="flex items-center justify-between">
             <Link className="flex flex-col no-underline" href="/">
-              <span className="font-bold">LukeberryPi</span>
+              <span className="font-bold">Caio Henrique</span>
               Software Engineer
             </Link>
             <div className="items-center flex gap-4">

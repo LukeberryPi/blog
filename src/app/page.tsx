@@ -19,12 +19,12 @@ interface Link {
 const externalLinks = [
   {
     description: "LinkedIn",
-    url: "https://linkedin.com/in/lukeberrypi",
+    url: "https://www.linkedin.com/in/caio-henrique-oliveira-batista-74608b23b/",
     Icon: <SiLinkedin />,
   },
   {
     description: "GitHub",
-    url: "https://github.com/LukeberryPi",
+    url: "https://github.com/caiohvectora",
     Icon: <SiGithub />,
   },
   {
@@ -34,19 +34,9 @@ const externalLinks = [
   },
   {
     description: "X / Twitter",
-    url: "https://twitter.com/LukeberryPi",
+    url: "https://x.com/CaioHenriqueOl3",
     Icon: <SiTwitter />,
-  },
-  {
-    description: "Spotify",
-    url: "https://open.spotify.com/artist/4ymHKBTThfeOL114lwCWPQ?si=Ci9I2yhCSY-BfEjtqZuFqQ",
-    Icon: <SiSpotify />,
-  },
-  {
-    description: "Instagram",
-    url: "https://instagram.com/LukeberryPi",
-    Icon: <SiInstagram />,
-  },
+  }
 ] as Link[];
 
 const ExternalLink = (link: Link) => {
