@@ -2,6 +2,7 @@
 title: "Usando BunJS para um backend E2E"
 date: "26-07-2024"
 category: backend
+active: false
 ---
 
 Okay, o hype do Bun passou. Você, através daquelas centenas de Tuítes e aquelas dezenas de vídeos, já entendeu que ele é 10x mais rápido que o node. Mas, ainda assim, não parou para experimentar o runtime e suas APIs. 
@@ -121,7 +122,7 @@ export async function getRequest(request: Request): ServerRequest {
     return req
 }
 ```
-Dessa forma, temos o objeto do jeito que queríamos. Note que `params` e `query` estão sem implementação, mas, novamente, podemos implementá-los a hora que quisermos (e vamos).
+Dessa forma, temos o objeto do jeito que queríamos. Note que `params` e `query` estão sem implementação, mas, novamente, podemos implementá-los a hora que quisermos.
 
 Voltando ao nosso `ServerConfig`:
 ```ts
@@ -290,7 +291,7 @@ export const ServerConfig = {
 Com isso fechamos o ciclo de nossas rotas, reproduzindo as funcionalidades do express, mas com nossas próprias abstrações e sem depender de nenhuma lib externa. Ótimo, não?
 
 ## Catching de error
-Aumentar a robustez implementando uma ambiente prepara para exceptions e erros é uma prática quase que essencial. Não é uma tarefa difícil, mas dependendo do tamanho do projeto, das tecnologias utilizadas, pode ser trabalhoso. No express, por exemplo, há plugins que fazem isso, como o express async errors. Mas será que deveríamos adicionar dependência(s) ao projeto para fazer isso? 
+Aumentar a robustez implementando um ambiente prepara para exceptions, erros e é uma prática quase que essencial. Não é uma tarefa difícil, mas dependendo do tamanho do projeto, das tecnologias utilizadas, pode ser trabalhoso. No express, por exemplo, há plugins que fazem isso, como o express async errors. Mas será que deveríamos adicionar dependência(s) ao projeto para fazer isso? 
 
 Bem, como estamos construíndo o nosso próprio fluxo com nossas próprias abstrações, essa tarefa vai ser relativamente fácil. Uma das práticas que sigo é criar um custom error `AppError` e simplesmente fazer um try catch. Vamos ver como ficaria:
 ```ts
@@ -339,15 +340,15 @@ Simplesmente adicionamos o try catch e checamos se ele, sendo uma classe, é uma
 
 ## Aprimorando as features
 
-E se quisermos quisermos adicionar cache? E se quisermos adicionar middlewares de autenticação? E se quisermos adicionar uma interface de websockets? E se quisermos adicionar um sistema de logs? E se quisermos adciionar um sistema de rate limit?
+E se quisermos adicionar cache? E se quisermos adicionar middlewares de autenticação? E se quisermos adicionar uma interface de websockets? E se quisermos adicionar um sistema de logs? E se quisermos adicionar um sistema de rate limit?
 
 Eu lhe digo, pequeno gafanhoto, que tudo isso é possível simplesmente com os recursos que a linguagem proporciona. Basta você ter a criatividade e a vontade de fazer! E bem, não pense que é não é experiente o suficiente, pois se todos pensassem assim, não teríamos as libs que tanto utilizamos hoje em dia.
 
-Para implementar cache, você pode simplesmente criar um Map que vai armazenas as chaves/valor, utilizando setTimeout para expirar as chaves. 
+Para implementar cache, você pode simplesmente criar um Map que vai armazena as chaves/valor, utilizando setTimeout para expirar as chaves. 
 
 Para autenticação, você pode criar funções que geram "tokens" (você pode até ir um pouco longe implementando uma criptografia mais segura, mas eu estou satisfeito usando btoa, crypto e RNG) e armazenam em arquivos
 
-Para implementar implementar websockets sem uma biblioteca, você pode usar a nativa do Bun(ou node), e criar abstrações que farão uma interface mais ergonômica. (_te desafio a conseguir implementar a mesma funcionalidade de [rooms](https://socket.io/docs/v3/rooms/) do Socket.io_)
+Para implementar websockets sem uma biblioteca, você pode usar a nativa do Bun(ou node), e criar abstrações que farão uma interface mais ergonômica. (_te desafio a conseguir implementar a mesma funcionalidade de [rooms](https://socket.io/docs/v3/rooms/) do Socket.io_)
 
 Para logs, você pode simplesmente fazer uma organização de funções que vão escrever em arquivos, você pode fazer prints com cores diferentes, você pode fazer logs de erros, de informações, de avisos, etc.
 
