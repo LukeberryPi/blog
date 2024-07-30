@@ -19,7 +19,9 @@ Antes de começar a entrar no assunto de fato, gostaria de fazer a sugestão ao 
 4. [Roteamento, entrega de arquivos](#roteamento-entrega-de-arquivos)
 5. [Catching de error](#catching-de-error)
 6. [Aprimorando as features](#aprimorando-as-features)
-7. [Conclusão](#conclusão)
+7. [É realmente necessário?](#é-realmente-necessário)
+8. [Mais sobre o Bun](#mais-sobre-o-bun)
+9. [Conclusão](#conclusão)
 
 ## Fazendo o Hello World
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { highlight } from "sugar-high";
 
 export function Article({ html }: { html: string }) {
@@ -13,12 +13,14 @@ export function Article({ html }: { html: string }) {
           code.innerHTML = html;
         });
         const titles = document.querySelectorAll("h2");
-        titles.forEach((title) => {
-          console.log(title.textContent)
+        const subtitles = document.querySelectorAll("h3");
+        const handleSetTitle = (title: any) => {
           title.id = title.textContent?.toLowerCase().replace(/\s/g, "-") as string;
-        });
+        }
+        titles.forEach(handleSetTitle)
+        subtitles.forEach(handleSetTitle)
       }
-      useEffect(handleFormatCode, [])
+      useLayoutEffect(handleFormatCode, [])
     return (
         <article dangerouslySetInnerHTML={{ __html: html }} />
     )

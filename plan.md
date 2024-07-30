@@ -1,18 +1,23 @@
 # Here's my plan to themes to make articles:
-
+P - Progress
+X - Closed
+R - In revision
+I - Next
+S - To study
+F - dont forget!
 ## Technical - Frontend
-- [ ] Shadcn-UI showcase, how to use, customizing, community showcase(should mention BiroBiroDev)
+- [I] Shadcn-UI showcase, how to use, customizing, community showcase(should mention BiroBiroDev)
 - [ ] About React Compiler(In React Native?)
 - [ ] Utilities Hooks in truly useCases (useWindowDimensions, useLocalStorage, useAuth, useApi, useFetch, useArrState, useToggleState, useObjState)
 - [ ] Tailwind selectors
 - [ ] Toast (Using lib or Making a custom one)
 - [ ] BottomSheet (Using lib or Making a custom one)
-- [ ] JS utilities: Array.from, explode, Promise.all, others...
-- [ ] Atomic design?
+- [I] JS utilities: Array.from, explode, Promise.all, others...
+- [S] Atomic design? https://atomicdesign.bradfrost.com/chapter-2/
 - [ ] Recharts
 - [ ] Prop architetures
 - [ ] Loading Layout, Skeleton Layout,
-- [ ] HOC with useCases
+- [R] HOC with useCases
 - [ ] How to mensure performance in React(should study this one)
 - [ ] Rizzui
 - [ ] AI Blink and some native browser features
@@ -22,7 +27,7 @@
 - [ ] Custom carousel options
 
 ## Technical - Backend
-- [⏲️] Using Bun to E2E backend
+- [X] Using Bun to E2E backend
 - [ ] Making abstractions to simulate your most used libs and frameworks (this is a giant one)
 - [ ] How to make your custom ORM
 - [ ] Why supabase is a good one to kickstart in backend

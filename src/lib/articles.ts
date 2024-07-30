@@ -10,6 +10,7 @@ export type Article = {
   id: string;
   title: string;
   date: string;
+  active: string
 };
 
 const ARTICLES_DIR = path.join(process.cwd(), "src/articles");
@@ -24,15 +25,16 @@ export const getArticles = () => {
     const fileContents = fs.readFileSync(fullPath, "utf-8");
 
     const matterResult = matter(fileContents);
-
     return {
       id,
+      active: matterResult.data.active,
       title: matterResult.data.title,
       date: matterResult.data.date,
     };
   });
-
-  return allArticlesData.sort((a, b) => {
+  
+  console.log(allArticlesData)
+  return allArticlesData.filter(i => i.active).sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else if (a.date > b.date) {
