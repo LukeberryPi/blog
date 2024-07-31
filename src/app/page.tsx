@@ -28,11 +28,6 @@ const externalLinks = [
     Icon: <SiGithub />,
   },
   {
-    description: "Youtube",
-    url: "https://youtube.com/@LukeberryPi",
-    Icon: <SiYoutube />,
-  },
-  {
     description: "X / Twitter",
     url: "https://x.com/CaioHenriqueOl3",
     Icon: <SiTwitter />,
@@ -57,15 +52,15 @@ const ExternalLink = (link: Link) => {
 
 const internalLinks = [
   {
-    description: "Explore my projects",
+    description: "Veja meus projetos",
     url: "/projects",
   },
   {
-    description: "Read my articles",
+    description: "Leia meus artigos",
     url: "/articles",
   },
   {
-    description: "Get to know me",
+    description: "Sobre mim",
     url: "/about",
   },
 ];
@@ -102,14 +97,14 @@ export default function HomePage() {
         </div>
         <div className="flex gap-2 flex-col">
           <a
-            href="/luke-berry-cv.pdf"
-            download="Luke-Berry-CV.pdf"
+            href="/caihe-cv.pdf"
+            download="caihe-cv.pdf"
             className="bg-zinc-950 p-4 text-zinc-100 flex items-center gap-4 hover:bg-zinc-700 transition-all active:tranzinc-y-1"
           >
-            Download my CV
+            Baixe meu CV
             <Download className="size-5" />
           </a>
-          <span className="text-zinc-500">It&apos;s only one page.</span>
+          {/* <span className="text-zinc-500">It&apos;s only one page.</span> */}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ R - In revision
 I - Next
 S - To study
 F - dont forget!
+C - cancelled
 ## Technical - Frontend
 - [I] Shadcn-UI showcase, how to use, customizing, community showcase(should mention BiroBiroDev)
 - [ ] About React Compiler(In React Native?)
@@ -12,7 +13,7 @@ F - dont forget!
 - [ ] Tailwind selectors
 - [ ] Toast (Using lib or Making a custom one)
 - [ ] BottomSheet (Using lib or Making a custom one)
-- [I] JS utilities: Array.from, explode, Promise.all, others...
+- [X] JS utilities: Array.from, explode, Promise.all, others...
 - [S] Atomic design? https://atomicdesign.bradfrost.com/chapter-2/
 - [ ] Recharts
 - [ ] Prop architetures
@@ -23,13 +24,13 @@ F - dont forget!
 - [ ] AI Blink and some native browser features
 - [ ] Providers in ReactJS and Nextjs
 - [ ] React custom avatar
-- [ ] Custom map library (live Alfred Insight)
+- [ ] Custom map library (like Alfred Insight)
 - [ ] Custom carousel options
 
 ## Technical - Backend
 - [X] Using Bun to E2E backend
-- [ ] Making abstractions to simulate your most used libs and frameworks (this is a giant one)
-- [ ] How to make your custom ORM
+- [C] Making abstractions to simulate your most used libs and frameworks (this is a giant one)
+- [F] How to make your custom ORM
 - [ ] Why supabase is a good one to kickstart in backend
 - [ ] About Archs in nodejs
 - [ ] Playing with scrapping and how to integrate it with a backend

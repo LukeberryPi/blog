@@ -110,7 +110,7 @@ Além disso, você pode transformar strings em arrays de uma forma mais rápida 
 ```ts
 const array = [...'Hello, World!']
 // ou
-const str = ["Hello, World!"]
+const str = "Hello, World!"
 const array = [...str]
 ```
 
@@ -123,6 +123,19 @@ setMyState({ ...myState, key: value })
 Se nunca fez, saiba que é uma forma de atualizar o estado de um componente sem perder os valores antigos. Isso é muito útil em formulários, por exemplo.
 
 E você pode usar o spread operator para fazer uma cópia de um array ou objeto, sem referenciar o mesmo objeto. Isso é muito útil para evitar mudanças indesejadas.
+
+Eu também já o utilizei para um case específico, como no exemplo:
+
+```tsx
+// resto do componente...
+    <div>
+        {[...data,...data,...data,...data,...data,...data,...data,].map((i, index) => (
+            <MyComponent data={i} />
+        ))}
+    </div>
+```
+
+Nesse caso, eu já estava com os dados conectados numa API, porém o banco de dados tinha só algumas linhas de dados. Então, eu usei o spread operator para multiplicar os dados e simular um banco de dados com mais dados, assim ampliando minha análise no caso onde haverá scroll, por exemplo.
 
 ### Desestruturação
 Um recurso bem comum, onde você pode pegar índices em array e propriedades no objeto e alocar a variáveis separadamente. Isso é muito útil para evitar repetição de código e tornar o código mais limpo. Eis um exemplo:

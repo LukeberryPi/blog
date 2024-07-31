@@ -32,9 +32,9 @@ export default function RootLayout({
             <div className="items-center flex gap-4">
               {/* <button><Sun className="size-5" /></button> */}
               <Link href="/">Home</Link>
-              <Link href="/projects">Projects</Link>
-              <Link href="/articles">Articles</Link>
-              <Link href="/about">About</Link>
+              <Link href="/projects">Projetos</Link>
+              <Link href="/articles">Artigos</Link>
+              <Link href="/about">Sobre mim</Link>
             </div>
           </nav>
         </header>
