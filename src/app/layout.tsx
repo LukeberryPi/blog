@@ -4,7 +4,7 @@ import Link from "next/link";
 import "./globals.css";
 // import { Sun } from "lucide-react";
 import { ScrollToTop } from "../components/scroll-to-top";
-
+import { Analytics } from "@vercel/analytics/react"
 export const metadata: Metadata = {
   title: "Caihe's Blog",
   description: "Caihe's Blog",
@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-screen">
       <body className={`${karla.className} min-h-full p-4`}>
+        <Analytics />
         <header className="max-w-prose mx-auto mb-8">
           <nav className="flex items-center justify-between">
             <Link className="flex flex-col no-underline" href="/">
