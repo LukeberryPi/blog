@@ -2,10 +2,11 @@
 title: "High-Order Components: Implementação e casos de uso."
 date: "29-07-2024"
 category: frontend
-active: false
+active: true
 ---
 
-É comum vermos uma técnica nas redes sociais, em algumas codebases ou tutoriais, mas não aplicarmos pois não pensamos em use cases onde ela seria uma mão na roda. Por isso, eis aqui algumas formas de como, no react, usar `High-Order Components`(HOC) para transformar seus códigos mais reutilizáveis e escaláveis.
+
+É comum vermos uma técnica nas redes sociais, em algumas _codebases_ ou tutoriais, mas não aplicarmos pois não pensamos em casos de uso onde ela seria uma mão na roda e faria realmente a diferença. Por isso, eis aqui algumas abordagens de como, no react, usar `High-Order Components`(HOC) para transformar seus códigos mais reutilizáveis e escaláveis.
 
 ## O que é
 
@@ -42,7 +43,31 @@ Sim, você poderia utilizar o hook `useUser` diretamente no componente `ProfileV
 - Utilizar HOCs para renderizar com o context(não precisará ficar importando o tempo inteiro)
 - Separar mais e mais a lógica de negócio do componente visual(chega de `useEffect` e `useState` em todos os componentes)
 
+Então veja um exemplo mais real de como você usaria o mesmo HOC:
+```tsx
+function WithUser(Component: React.FC<{ user: User }>) {
+    return function ProfileContainer() {
+        const { data, loading, error } = useUser();
+        if (loading) return <LoadingScreen />
+        if (error) return <ErrorScreen />
+        return <Component user={user}/>
+    }
+}
+```
+```tsx
+// ProfileView.tsx
+import WithUser from './WithUser';
 
+function ProfileView({ user }: { user: User }) {
+    return (
+        <>
+            <img src={user.image}/>
+            <h1>{user.name}</h1>
+        </>
+    )
+}
+export default WithUser(ProfileView);
+```
 ## Apenas alguns use cases
 
 Bem, provavelmente você já trabalhou com autenticação, e sabe que ao tempo inteiro estamos enviando tokens para praticamente qualquer requisição que temos que fazer ao servidor. E, ainda que seja simples "getar" a token, se torna chato quando você deve fazer isso em praticamente todas as pages. Mas, com um HOC, isso pode ficar mais simples:
@@ -94,7 +119,7 @@ function withProductData(Component: React.FC) {
 }
 ```
 
-Voila! Agora resolvemos **três** problemas! Você não vai ter que ficar resgatando sua token o tempo inteiro, você já tem uma válvula de escape garantida quando a token não estiver presente e você já tem um componente que faz fetch de dados e trata os erros de forma genérica, renderiza loading e tem uma tela para quando dados vierem vazias. Ainda dentro desse componente, você, com o erro, poderia ler o status e renderizar uma tela de erro para cada status que tiver recebido(404, 500, 401...). Pense como fazer uma abstração genérica para toda a aplicação iria poupar seu tempo!
+Voila! Agora resolvemos **três** problemas! Você não vai ter que ficar resgatando sua token o tempo inteiro, você já tem uma válvula de escape garantida quando a token não estiver presente você já tem um componente que faz fetch de dados e trata os erros de forma genérica, renderiza loading e tem uma tela para quando dados vierem vazios. Ainda dentro desse componente, você, com o erro, poderia ler o status e renderizar uma tela de erro para cada status que tiver recebido(500, 401...). Pense como fazer uma abstração genérica para toda a aplicação iria poupar seu tempo!
 
 E se fizermos uma abstração mais genérica no nosso código anterior?
 ```tsx

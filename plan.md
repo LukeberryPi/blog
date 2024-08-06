@@ -1,4 +1,4 @@
-# Here's my plan to themes to make articles:
+    # Here's my plan to themes to make articles:
 P - Progress
 X - Closed
 R - In revision
@@ -11,7 +11,7 @@ C - cancelled
 - [ ] About React Compiler(In React Native?)
 - [ ] Utilities Hooks in truly useCases (useWindowDimensions, useLocalStorage, useAuth, useApi, useFetch, useArrState, useToggleState, useObjState)
 - [ ] Tailwind selectors
-- [ ] Toast (Using lib or Making a custom one)
+- [ ] Toast (Using lib or Making a custom one) 
 - [ ] BottomSheet (Using lib or Making a custom one)
 - [X] JS utilities: Array.from, explode, Promise.all, others...
 - [S] Atomic design? https://atomicdesign.bradfrost.com/chapter-2/
@@ -19,7 +19,7 @@ C - cancelled
 - [ ] Prop architetures
 - [ ] Loading Layout, Skeleton Layout,
 - [R] HOC with useCases
-- [ ] How to mensure performance in React(should study this one)
+- [S] How to mensure performance in React
 - [ ] Rizzui
 - [ ] AI Blink and some native browser features
 - [ ] Providers in ReactJS and Nextjs
@@ -35,6 +35,7 @@ C - cancelled
 - [ ] About Archs in nodejs
 - [ ] Playing with scrapping and how to integrate it with a backend
 - [ ] Playing with whatsapp bots
+- [ ] Making a text-game in java backend with some OOP
 
 ## SWE, Soft Skills, Career, Personal
 - [ ] My experience moving distributed systems to a Nextjs monorepo
