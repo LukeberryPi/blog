@@ -1,6 +1,6 @@
 ---
 title: "High-Order Components: Implementação e casos de uso."
-date: "29-07-2024"
+date: "06-08-2024"
 category: frontend
 active: true
 ---
