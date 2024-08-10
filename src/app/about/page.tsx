@@ -4,23 +4,18 @@ export default function AboutPage() {
       <h1 className="my-12 font-bold">About</h1>
       <article>
         <p>
-          I am a brazilian software engineer with a passion for creating things
-          from zero. I am currently pursuing a degree in computer science at
-          UniAmerica, Brazil.
+          Eu sou Caio Henrique, atualmente tenho 18 anos e curso engenharia elétrica na Universidade Federal Fluminense. Trabalho como desenvolvedor
+          de software Freelancer a dois anos e tenho uma paixão por tecnologia, processos criativos, desenvolvimento e programação.
         </p>
         <p>
-          In my free time I enjoy travelling, swimming, running and playing
-          music. I actually have released songs that you can check out{" "}
-          <a href="https://open.spotify.com/artist/4ymHKBTThfeOL114lwCWPQ?si=cfbe06670e1746bf">
-            on my Spotify page.
-          </a>
+          No meu tempo livre, eu gosto de jogar, aprender sobre tecnologia, desenvolver soluções criativas, e escrever. Sou generalista e gosto de 
+          escutar e dissertar sobre qualquer assunto.
         </p>
         <p>
-          Thank you for visiting my website. I hope you find it informative and
-          enjoyable. You can contact me at{" "}
-          <a href="mailto:lukeberrypi@gmail.com">lukeberrypi@gmail.com</a>.
+          Obrigado por visitar meu site. Espero que você o ache informativo e agradável. Você pode entrar em contato comigo em{" "}
+          <a href="mailto:caihebatista@gmail.com">caihebatista@gmail.com</a>
         </p>
-        <p>Luke Berry</p>
+        <p>Caio Henrique</p>
       </article>
     </>
   );
