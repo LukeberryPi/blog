@@ -36,10 +36,15 @@ C - cancelled
 - [ ] Playing with scrapping and how to integrate it with a backend
 - [ ] Playing with whatsapp bots
 - [ ] Making a text-game in java backend with some OOP
-
+- [ ] How server side rendering works and why you may need it
+- [ ] Backend in NextJS, is it really possible?
+- [S] How you build a BFF
+- [S] Kickstart with GraphQL
+- [ ] Handling background jobs in nodejs
+ 
 ## SWE, Soft Skills, Career, Personal
 - [ ] My experience moving distributed systems to a Nextjs monorepo
-- [ ] How get side project ideas
+- [X] How get side project ideas
 - [ ] Why i become a developer
 - [ ] Why i become fullstack developer
 - [ ] Why personal projects are important

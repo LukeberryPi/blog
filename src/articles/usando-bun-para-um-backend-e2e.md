@@ -380,7 +380,7 @@ E por fim, o Bun é uma tecnologia que está crescendo, e que tem um potencial g
 
 ## Conclusão
 
-Espero que você tenha gostado do artigo e que tenha aprendido algo. Se você gostou, compartilhe com seus amigos e me siga no twitter (@CaioHenriqueOl3). Se você não gostou, me mande uma mensagem e me diga o que eu posso melhorar. 
+Espero que você tenha gostado do artigo e que tenha aprendido algo. Se você gostou, compartilhe com seus amigos! Se você não gostou, me mande uma mensagem e me diga o que eu posso melhorar. 
 
 Por sinal, as coisas foram inspiradas no repositório em que construí algumas coisas ditas aqui. Se você quiser ver o código completo, [clique aqui](https://github.com/CaioHVectorA/StoreHub/).
 
