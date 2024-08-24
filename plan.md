@@ -28,6 +28,7 @@ C - cancelled
 - [ ] Custom carousel options
 
 ## Technical - Backend
+- [ ] Basic concepts on backend(request, response, security(https, jwt, cors), middlewares, architecture, etc)
 - [X] Using Bun to E2E backend
 - [C] Making abstractions to simulate your most used libs and frameworks (this is a giant one)
 - [F] How to make your custom ORM
