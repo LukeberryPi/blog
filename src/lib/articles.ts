@@ -11,7 +11,7 @@ export type Article = {
   date: string;
 };
 
-const ARTICLES_DIR = path.join(process.cwd(), "src/articles");
+const ARTICLES_DIR = path.join(process.cwd(), "src/artigos");
 
 export const getArticles = () => {
   const fileNames = fs.readdirSync(ARTICLES_DIR);

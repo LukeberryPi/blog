@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function ProjectsPage() {
   return (
-    <>
-      <h1>Projects</h1>
+    <> <h1>Soon ...</h1>
+      {/* <h1>Projetos</h1>
       <section>
         <article>
           <div className="mt-10 flex justify-between flex-col gap-4 md:items-center md:flex-row">
@@ -159,7 +159,7 @@ export default function ProjectsPage() {
             </a>
           </div>
         </article>
-      </section>
+      </section>*/ }
     </>
   );
 }

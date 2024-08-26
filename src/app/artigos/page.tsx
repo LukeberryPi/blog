@@ -7,10 +7,8 @@ export default async function ArticlesPage() {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between">
-        <h1 className="my-12 font-bold">Articles</h1>
-        <Link href={"/rss.xml"} className="text-zinc-500">
-          <p className="underline">RSS Feed</p>
-        </Link>
+        <h1 className="my-12 font-bold">Artigos</h1>
+        
       </div>
       <section className="flex flex-col divide-y divide-zinc-300 w-full">
         {articles.map((article: Article) => (
