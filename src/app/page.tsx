@@ -99,7 +99,7 @@ export default function HomePage() {
           <a
             href="/caihe-cv.pdf"
             download="caihe-cv.pdf"
-            className="bg-zinc-950 p-4 text-zinc-100 flex items-center gap-4 hover:bg-zinc-700 transition-all active:tranzinc-y-1"
+            className="bg-zinc-900 dark:bg-zinc-200 p-4 text-zinc-100 dark:text-zinc-900 flex flex-col sm:flex-row items-center gap-3 hover:bg-zinc-700 dark:hover:bg-zinc-400 transition-all"
           >
             Baixe meu CV
             <Download className="size-5" />

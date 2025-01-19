@@ -1,22 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-property: #0550ae;
-  --sh-entity: #249a97;
-  --sh-jsxliterals: #6266d1;
-  --sh-string: #00a99a;
-  --sh-keyword: #f47067;
-  --sh-comment: #a19595;
+  /* Darker blue - better on light bg */
+  --sh-class: #0f7dd6;
+
+  /* Deeper purple */
+  --sh-identifier: #9333ea;
+
+  /* Darker neutral */
+  --sh-sign: #71717a;
+
+  /* Deeper blue */
+  --sh-property: #2563eb;
+
+  /* Darker teal */
+  --sh-entity: #0d9488;
+
+  /* Deeper purple */
+  --sh-jsxliterals: #7c3aed;
+
+  /* Darker cyan */
+  --sh-string: #0891b2;
+
+  /* Deeper red */
+  --sh-keyword: #dc2626;
+
+  /* Darker gray */
+  --sh-comment: #64748b;
 }
+
 @layer base {
   html,
   body {
-    @apply bg-zinc-50 text-zinc-950;
-    @apply scroll-smooth;
+    @apply bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-200;
+  }
+
+  article {
+    @apply mb-12;
   }
 
   article > h1,
@@ -25,20 +47,20 @@
   article > h4,
   article > h5,
   article > h6 {
-    @apply text-zinc-950 font-bold my-6;
+    @apply text-zinc-950 font-bold my-6 dark:text-zinc-200;
   }
 
   article h2 {
-    @apply uppercase tracking-wide font-normal mt-12 font-bold;
+    @apply uppercase mt-12 font-bold;
   }
 
   article p {
-    @apply text-zinc-700 my-4 leading-relaxed;
+    @apply text-zinc-950 dark:text-zinc-200 my-4;
   }
 
   article ul,
   article ol {
-    @apply text-zinc-700 my-4 pl-8;
+    @apply text-zinc-950 dark:text-zinc-200 pl-8 my-4;
   }
 
   article li {
@@ -54,20 +76,19 @@
   }
 
   article blockquote {
-    @apply border-l-4 border-emerald-600 pl-4 my-4;
+    @apply border-l-2 border-emerald-600 dark:border-sky-600 pl-4 my-4;
   }
 
   article :not(pre) > code {
-    @apply rounded ring-1 ring-zinc-950 px-1.5 py-0.5 mx-0.5 text-sm select-all text-nowrap;
+    @apply rounded ring-1 ring-zinc-950 dark:ring-zinc-200 px-1.5 py-0.5 mx-0.5 text-sm select-all text-nowrap;
   }
 
   article pre {
-    @apply ring-1 ring-zinc-950 p-4 my-4 overflow-x-auto text-sm;
+    @apply p-4 my-4 overflow-x-auto;
   }
 
-  header a,
   article a {
-    @apply underline underline-offset-2 decoration-2 decoration-emerald-600;
+    @apply underline underline-offset-2 decoration-emerald-600 dark:decoration-sky-600;
   }
 
   button,
