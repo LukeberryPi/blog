@@ -1,4 +1,4 @@
-    # Here's my plan to themes to make articles:
+# Here's my plan to themes to make articles:
 P - Progress
 X - Closed
 R - In revision
@@ -9,7 +9,7 @@ C - cancelled
 ## Technical - Frontend
 - [I] Shadcn-UI showcase, how to use, customizing, community showcase(should mention BiroBiroDev)
 - [ ] About React Compiler(In React Native?)
-- [ ] Utilities Hooks in truly useCases (useWindowDimensions, useLocalStorage, useAuth, useApi, useFetch, useArrState, useToggleState, useObjState)
+- [X] Utilities Hooks in truly useCases (useWindowDimensions, useLocalStorage, useAuth, useApi, useFetch, useArrState, useToggleState, useObjState)
 - [ ] Tailwind selectors
 - [ ] Toast (Using lib or Making a custom one) 
 - [ ] BottomSheet (Using lib or Making a custom one)
@@ -26,9 +26,10 @@ C - cancelled
 - [ ] React custom avatar
 - [ ] Custom map library (like Alfred Insight)
 - [ ] Custom carousel options
+- [ ] Custom dropdown options
 
 ## Technical - Backend
-- [ ] Basic concepts on backend(request, response, security(https, jwt, cors), middlewares, architecture, etc)
+- [X] Basic concepts on backend(request, response, security(https, jwt, cors), middlewares, architecture, etc)
 - [X] Using Bun to E2E backend
 - [C] Making abstractions to simulate your most used libs and frameworks (this is a giant one)
 - [F] How to make your custom ORM
@@ -42,7 +43,8 @@ C - cancelled
 - [S] How you build a BFF
 - [S] Kickstart with GraphQL
 - [ ] Handling background jobs in nodejs
- 
+- [ ] Where to deploy your backend
+
 ## SWE, Soft Skills, Career, Personal
 - [ ] My experience moving distributed systems to a Nextjs monorepo
 - [X] How get side project ideas
