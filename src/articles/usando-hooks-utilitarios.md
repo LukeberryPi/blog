@@ -1,8 +1,8 @@
 ---
 title: "Usando hooks utilitários em React"
-date: "19-08-2024"
+date: "19-01-2025"
 category: frontend
-active: false
+active: true
 ---
 
 Não é segredo que hooks são uma das melhores features do React. Além dos proporcionados pela própria biblioteca, é possível criar hooks customizados para facilitar o desenvolvimento de aplicações, e reutilizar lógicas complexas em prol da escalabilidade e manutenibilidade do código.
@@ -138,7 +138,7 @@ O useApi é um hook que retorna as funções de cada método HTTP, como `get`, `
 ```jsx
 import { useState } from 'react';
 
-function useApi() {
+export function useApi() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -181,8 +181,114 @@ function useApi() {
 Já o useFetch é um hook que automaticamente faz a requisição `get` para um endpoint e retorna o resultado. Eis uma implementação simples:
 
 ```jsx
+import { useState, useEffect } from 'react';
+import { useApi } from './useApi';
+
+export function useFetch(url) {
+  const { get, loading, data, error } = useApi();
+  useEffect(() => {
+    get(url);
+  }, [url]);
+
+  return { loading, data, error };
+}
+```
+E agora você pode utilizá-los em qualquer componente da seguinte forma:
+
+```jsx
+import { useFetch } from './useFetch';
+
+function MyComponent() {
+  const { loading, data, error } = useFetch('https://api.example.com/data');
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
+
+  if (error) {
+    return <p>Ocorreu um erro: {error.message}</p>;
+  }
+
+  return (
+    <div>
+      <p>{data}</p>
+    </div>
+  );
+}
+```
 ### useArrState
-Esse se demonstrou útil quando eu tinha uma situação como, por exemplo um carrinho. Nesse hook, eu fiz um cenário onde eu poderia adicionar itens, remover itens pelo seu índice, limpar toda a array e, principalmente, refazer ações.
+Esse se demonstrou útil quando eu tinha uma situação como, por exemplo um carrinho. Nesse hook, eu fiz um cenário onde eu poderia adicionar itens, remover itens pelo seu índice, limpar toda a array e, principalmente, desfazer ações. Dessa forma sem ter muito código no seu componente, você pode proporcionar uma melhor experiência ao usuário. Eis uma implementação simples:
+
+```jsx
+import { useRef, useState } from "react";
+
+export type ArrStateActions<T> = {
+    setArrState: React.Dispatch<React.SetStateAction<T[]>>;
+    addItem: (item: T) => void;
+    removeItem: (index: number) => void;
+    editItem: (index: number, data: T) => void;
+    undo: () => void;
+};
+
+export function useArr<T>(initialState: T[] | (() => T[])) {
+    const [arrState, setArrState] = useState<T[]>(initialState);
+    const lastState = useRef<T[] | null>(null);
+
+    const addItem = (item: T) => {
+        setArrState((prevState) => {
+            lastState.current = prevState;
+            return [...prevState, item];
+        });
+    };
+
+    const removeItem = (index: number) => {
+        setArrState((prevState) => {
+            lastState.current = prevState;
+            const temp = [...prevState];
+            temp.splice(index, 1);
+            return temp;
+        });
+    };
+
+    const editItem = (index: number, data: T) => {
+        setArrState((prevState) => {
+            lastState.current = prevState;
+            const temp = [...prevState];
+            temp[index] = data;
+            return temp;
+        });
+    };
+
+    const undo = () => {
+        if (!lastState.current) return;
+        setArrState(lastState.current as T[]);
+    };
+
+    return [arrState, { setArrState, editItem, addItem, removeItem, undo } as ArrStateActions<T>] as const;
+}
+```
 ### useDebounce
-### useToggleState
-### useObjState
+Esse hook é útil quando você precisa fazer uma requisição para um servidor toda vez que o usuário digita algo em um campo de busca, por exemplo. Para evitar que a requisição seja feita a cada caractere digitado, você pode utilizar o `useDebounce` para atrasar a requisição até que o usuário pare de digitar. Eis uma implementação simples:
+
+```jsx
+import { useState, useEffect } from 'react';
+
+export function useDebounce(value: string, delay: number) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
+```
+### Conclusão
+Hooks customizados muitas vezes podem ser overengineering, de fato, mas em muitos casos eles são a melhor solução para otimizar o desenvolvimento de webapps, reutilizando lógicas e separando UI da lógica. Dê uma chance a eles e veja como eles podem facilitar a sua vida como desenvolvedor! 

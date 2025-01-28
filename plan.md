@@ -5,6 +5,7 @@ R - In revision
 I - Next
 S - To study
 F - dont forget!
+E - Engaged
 C - cancelled
 ## Technical - Frontend
 - [I] Shadcn-UI showcase, how to use, customizing, community showcase(should mention BiroBiroDev)
@@ -27,6 +28,12 @@ C - cancelled
 - [ ] Custom map library (like Alfred Insight)
 - [ ] Custom carousel options
 - [ ] Custom dropdown options
+- [E] Data fetching approaches in React(Axios, Fetch, React Query, SSR)
+
+## Tutorial
+- [ ] Kickstarting with Database
+- [ ] NextJS, quick starting
+- [ ] 
 
 ## Technical - Backend
 - [X] Basic concepts on backend(request, response, security(https, jwt, cors), middlewares, architecture, etc)
@@ -42,9 +49,17 @@ C - cancelled
 - [ ] Backend in NextJS, is it really possible?
 - [S] How you build a BFF
 - [S] Kickstart with GraphQL
-- [ ] Handling background jobs in nodejs
+- [S] Handling background jobs in nodejs
 - [ ] Where to deploy your backend
-
+- [ ] Plug and Play: Building an online game in NodeJS
+- [ ] TDD: My simple vision
+- [E] Seeding databases.
+- [ ] Building a RSS Feed.
+- [E] Error handling: You probably are doing it wrong.
+- [ ] Prisma.
+- [ ] Validating data in Fastify.
+- [ ] Elysia: For bunners.
+- [ ] Websockets, i swear it's not that hard.
 ## SWE, Soft Skills, Career, Personal
 - [ ] My experience moving distributed systems to a Nextjs monorepo
 - [X] How get side project ideas
@@ -52,6 +67,7 @@ C - cancelled
 - [ ] Why i become fullstack developer
 - [ ] Why personal projects are important
 - [ ] Why backend became my favorite
+- [ ] Try harder projects, exit your comfort zone
 - [ ] Why curiosity is important
 - [ ] Writing: books and code, are they somehow connected?
 - [ ] Why gamedev made me a better developer (and why i dont do it anymore) (and why you should try it) (and why i should try it again)
@@ -59,3 +75,9 @@ C - cancelled
 - [ ] Why ML and Data Science interest me
 
 ## Projects Showcase
+- [ ] SimTcg
+- [ ] BunSQLight
+
+## Others
+
+- [ ] KaplayJS
