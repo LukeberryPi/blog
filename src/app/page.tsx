@@ -10,11 +10,21 @@ import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
-interface Link {
+interface LinkT {
   description: string;
   url: string;
   Icon?: ReactNode;
 }
+const BskyLogo = () => {
+  return (
+    <svg fill="none" viewBox="0 0 64 57" width="24">
+      <path
+        className="fill-zinc-950 dark:fill-zinc-200"
+        d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"
+      ></path>
+    </svg>
+  );
+};
 
 const externalLinks = [
   {
@@ -28,19 +38,19 @@ const externalLinks = [
     Icon: <SiGithub />,
   },
   {
-    description: "X / Twitter",
-    url: "https://x.com/CaioHenriqueOl3",
-    Icon: <SiTwitter />,
-  }
-] as Link[];
+    description: "Bluesky",
+    url: "https://bsky.app/profile/caihevector.bsky.social",
+    Icon: <BskyLogo />,
+  },
+] as LinkT[];
 
-const ExternalLink = (link: Link) => {
+const ExternalLink = (link: LinkT) => {
   return (
     <a
       key={link.description}
       href={link.url}
       target="_blank"
-      className="flex items-center justify-between ring-1 ring-zinc-950 p-4 hover:bg-zinc-200 transition-all"
+      className="flex items-center justify-between ring-1 ring-zinc-950 dark:ring-zinc-200 p-4 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all"
     >
       <span className="flex items-center gap-4">
         {link.Icon} {link.description}
@@ -65,7 +75,7 @@ const internalLinks = [
   },
 ];
 
-const InternalLink = (link: Link) => {
+const InternalLink = (link: LinkT) => {
   return (
     <Link className="group flex items-center gap-2" href={link.url}>
       {link.description}
@@ -77,7 +87,7 @@ const InternalLink = (link: Link) => {
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-6">
-      {externalLinks.map((link: Link) => (
+      {externalLinks.map((link: LinkT) => (
         <ExternalLink
           key={link.description}
           description={link.description}
@@ -87,7 +97,7 @@ export default function HomePage() {
       ))}
       <div className="flex justify-between items-start">
         <div className="flex flex-col gap-4">
-          {internalLinks.map((link: Link) => (
+          {internalLinks.map((link: LinkT) => (
             <InternalLink
               key={link.description}
               description={link.description}

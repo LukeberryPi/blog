@@ -31,7 +31,7 @@ const Header = () => {
       <nav className="flex items-center justify-between">
         <Link className="flex flex-col no-underline" href="/">
           <span className="font-bold">Caio Henrique</span>
-          Software Engineer
+          Desenvolvedor Fullstack
         </Link>
         <div className="items-center flex gap-4">
           {/* <button><Sun className="size-5" /></button> */}
