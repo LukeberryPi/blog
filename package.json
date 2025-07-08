@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate:rss": "node src/scripts/gen-rss.js"
+    "generate:rss": "node src/scripts/gen-rss.js",
+    "export": "next build",
+    "deploy": "npm run export && echo. > out/.nojekyll",
+    "gh-pages": "next build && echo. > out/.nojekyll"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^9.5.0",
