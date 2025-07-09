@@ -1,7 +1,7 @@
 ---
 title: "Frontend Debugging 101"
 date: "2024-07-23"
-tags: ["technology", "beginner"]
+tags: ["technology"]
 location: "Málaga, Spain"
 ---
 

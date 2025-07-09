@@ -126,7 +126,7 @@ export default function HomePage() {
                 href="mailto:lukeberrypi@gmail.com"
                 className="text-zinc-800 dark:text-zinc-200"
               >
-                <Send strokeWidth={1.4} className="size-4" />
+                <Send strokeWidth={1.4} className="size-5" />
               </a>
             </div>
           </div>
