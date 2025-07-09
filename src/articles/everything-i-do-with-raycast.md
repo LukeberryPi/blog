@@ -183,6 +183,12 @@ Let's say you just posted a video and want to share it on X. How do you get the 
 
 Alternatively, visit the dozens of websites that do this and get flooded with ads.
 
+## Raycast Pro
+
+Let's talk money
+
+## Conclusion
+
 that is a valid question
 
 I see raycast as a layer that sits on top of everything I do on my computer
