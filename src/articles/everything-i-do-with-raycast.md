@@ -5,21 +5,25 @@ tags: ["technology", "raycast"]
 location: "London, United Kingdom"
 ---
 
-In the last 50 days, Raycast released their [iOS app](https://www.raycast.com/ios), rolled out the much-awaited
+Raycast is growing fast and there are a lot of fresh eyes are on the product.
+
+In the last 50 days, they released their [iOS app](https://www.raycast.com/ios), rolled out the much-awaited
 [Windows Beta](https://x.com/thomaspaulmann/status/1937887427852488719) and got sherlocked ([or not?](https://x.com/thomaspaulmann/status/1932406174344757379)) by Apple, when they announced a
 revolutionary update to the macOS Spotlight.
 
-Raycast is growing fast and there are a lot of fresh eyes are on the product.
+Since I wrote [Raycast: Second Impressions](https://www.lukeberrypi.com/articles/raycast-second-impressions) a year ago I've spent hundreds of hours understanding Raycast and trying to get the most of it. It's time to write about it again.
 
-A year ago I wrote [Raycast: Second Impressions](https://www.lukeberrypi.com/articles/raycast-second-impressions), sharing why I switched from Alfred to Raycast. Since then I've spent hundreds of hours understanding how it works and extracting the most of it. It's time to write about it again.
-
-Here's everything I do with Raycast in detail. Buckle up!
+Here's Everything I do with Raycast. Buckle up!
 
 ## Opening Applications
 
-Let's start from the beginning, Raycast is a Launcher after all, right?
+On any MacBook, you can hit `⌘` `space`, write the name of an app and open it. Of course you can do that in Raycast too.
 
-Opening apps with a hotkey. This is specially useful for a quick toggle, because pressing the hotkey again hides the app. Probably the easiest way to become quicker at navigating.
+But can we make that quicker? Especially for apps that you open a lot? Yes, by **opening apps with a hotkey**.
+
+The cherry on top is that pressing the hotkey again hides the app, making it super easy to toggle between different apps. Probably the biggest ROI tip in this article.
+
+I open/close these at least 200 times a day:
 
 - `⌘` `esc` -> Terminal
 - `⌥` `I` -> Visual Studio Code
@@ -28,24 +32,27 @@ Opening apps with a hotkey. This is specially useful for a quick toggle, because
 
 ## Native Extensions
 
-> These commands don't come with a hotkey by default. I customized these.
-
 Let's start easy. These are all **zero configuration** and **free**.
+
+> By default, these commands don't have a hotkey. The hotkeys below are custom.
 
 ### Clipboard History
 
 > `⌘` `shift` `C`
 
-Way before Raycast I used [Maccy](https://maccy.app) for clipboard history. Even before that on [Windows](https://support.microsoft.com/en-gb/windows/using-the-clipboard-30375039-ce71-9fe4-5b30-21b7aab6b13f).
+Way before Raycast I used [Maccy](https://maccy.app) for clipboard history. And even before that on [Windows](https://support.microsoft.com/en-gb/windows/using-the-clipboard-30375039-ce71-9fe4-5b30-21b7aab6b13f).
 
-If I convince you to use any Clipboard History and nothing else, I'll still be proud. Because it really is an impactful feature.
+It reshapes how you think about copying stuff, from momentary convenience to infinite storage of anything you may want in the future. It's like a bookmark and a draft had a baby.
 
-It reshapes how you think about a clipboard, from a simple asset transfer, to a global draft
+Someone asked you for the link to a Pull Request you closed last week? Open Clipboard History and search for "pull". And there it is.
 
-Someone asked you for the link to a Pull Request you closed last week? Search for "pull". There it is.
-Your mum accidentally deleted the kid photo you sent her? Filter by image. Easy.
+Here's a tip: always use **Copy picture of selected area to the clipboard** instead of **Save picture of selected area as a file**. The latter floods your Desktop with screenshot files.
 
-I cannot express how much time this has saved me in a years time. Use it!
+You can find the hotkeys for these in **System Settings > Keyboard > Keyboard Shortcuts > Screenshots**
+
+By doing this you make Clipboard History even more powerful, since you can search for **all screenshots** you've ever taken.
+
+Your mum accidentally deleted the kid photo you sent her and is asking for it again? Filter by "Images only". Easy.
 
 ### Snippets
 
@@ -97,7 +104,9 @@ This is the secret sauce. Anyone can build an extension with React + TypeScript 
 
 Here's [an extension I built](https://github.com/raycast/extensions/pull/15493). It didn't go to the store because I had build issues, but I still use it locally.
 
-It's a clever move to have your community build
+It's a clever move to have your community extend your product for you, and Raycast has striken the perfect balance between open source (extensions) and closed source (the rest of the software).
+
+In fact, the recent addition of [AI Extensions](https://manual.raycast.com/ai-extensions) was only possible by leveraging these community-built extensions.
 
 There's a lot to unpack, so I'll separate them into three sections:
 
@@ -113,51 +122,51 @@ Extensions I can no longer live without.
 
 > `Show Latest Download` `⌥` `D`
 
-Shows, opens or copies the last download. Very useful for quickly installing apps by opening the `.dmg` or previewing video downloads.
+Shows, opens or copies the last download. Very useful for quickly installing apps by opening the `.dmg` or previewing videos that you've downloaded. And for quickly copying the last image you downloaded. [Download](#)
 
 ### Color Picker
 
 > `Pick Color` `⌥` `C`
 
-Color utilities
+Grab the color of any pixel on your screen. I've used alternatives in the past but they either had poor UX or were constrained to the browser. Extra marks for supporting other color formats such as OKLCH. [Download](#)
 
 ### Spotify Controls
-
-Pause Spotify by typing "sp", "sa"/"sd" for backwards/forwards
 
 - `Pause/Play` `⌥` `P`
 - `Next Song` `⌥` `]`
 - `Previous Song` `⌥` `[`
 
+. You may ask: "Why not use the dedicated media controls (F7, F8, F9) on the MacBook? Because if you're watching a youtube video, that's what they will control. It varies depending on what you're playing. [Download](#)
+
 ### Google Translate
 
 > `Quick Translate` `Alias: t`
 
-Type in one language [EN, PT, ES, IT, FR] and receive translations in all languages instantly
+Type in one language [EN, PT, ES, IT, FR] and receive translations in all languages instantly [Download](#)
 
 ### Toothpick
 
 > `Manage Bluetooth Connections` `⌥` `B`
 
-Switch between bluetooth and audio devices
+Connect/disconnect from your Bluetooth devices. [Download](#)
 
 ### Image Tools
 
-Compress and convert images. Useful for converting that photo you AirDropped to PNG.
+Compress and convert images. Useful for converting that photo you AirDropped to PNG. [Download](#)
 
 ## Surprising
 
-Extensions I didn't expect to exist and I use frequently.
+Extensions I didn't expect to exist and I use frequently. [Download](#)
 
 ### Change Case
 
-What a gem. Change case reads your selected text and
+What a gem. Change case reads your selected text and replaces it with changed casing: UPPERCASE, lowercase, kebab-case. You name it. [Download](#)
 
 ### Unsplash
 
 > `Search Images` `⌥` `U`
 
-Search for the biggest stock photo archive inside Raycast. When you find the perfect one download or copy it
+Download and copy images the biggest stock photo archive in the internet. [Download](#)
 
 ## Quirky
 
@@ -166,26 +175,25 @@ Fun extensions I use once in a while.
 ### Premier League
 
 > `Show Table` `Alias: pl`
+> `Show Table` `Alias: pl`
 
-Premier League table, fixtures and results. For the footy fanatic.
+Premier League table, fixtures and results. For the footy fanatic. [Download](#)
 
 ### Fancy text
 
-Create 𝓯𝓪𝓷𝓬𝔂 𝓽𝓮𝔁𝓽 in seconds with Raycast
+Create 𝓯𝓪𝓷𝓬𝔂 𝓽𝓮𝔁𝓽 in seconds with Raycast [Download](#)
 
 ### Keyboard Lock
 
-Have you ever tried to clean your MacBook keyboard? I know you haven't. But if you accidentally drop some bread crumbs on it, just use this extension to deactivate your keyboard and clean them off. There is a paid version of this app
+Have you ever tried to clean your MacBook keyboard? I know you haven't. But if you accidentally drop some bread crumbs on it, just use this extension to deactivate your keyboard and clean them off. [Download](#)
 
 ### Get Youtube Thumbnail
 
-Let's say you just posted a video and want to share it on X. How do you get the thumbnail? Drop the link into this extension.
+Let's say you just posted a video and want to share it on X. How do you get the thumbnail? Drop the link into this extension. Alternatively, visit the dozens of websites that do this and get flooded with ads. [Download](#)
 
-Alternatively, visit the dozens of websites that do this and get flooded with ads.
+## Money Talks
 
-## Raycast Pro
-
-Let's talk money
+Let's talk about Raycast Pro
 
 ## Conclusion
 

@@ -29,7 +29,7 @@
   }
 
   article strong {
-    @apply font-normal text-zinc-950 dark:text-zinc-200;
+    @apply font-normal text-zinc-950 dark:text-zinc-300;
   }
 
   article {
@@ -61,7 +61,7 @@
   }
 
   article :not(pre) > code {
-    @apply mx-1 select-all text-nowrap rounded px-1.5 py-0.5 text-sm text-zinc-950 ring-1 ring-zinc-300 dark:text-zinc-200 dark:ring-zinc-600;
+    @apply mx-1 select-all text-nowrap rounded px-1.5 py-0.5 text-sm text-zinc-950 ring-1 ring-zinc-300 dark:text-zinc-300 dark:ring-zinc-600;
   }
 
   article pre {
@@ -69,6 +69,6 @@
   }
 
   article a {
-    @apply text-zinc-950 underline decoration-sky-500 underline-offset-4 dark:text-zinc-200 dark:decoration-sky-600;
+    @apply text-zinc-950 underline decoration-sky-500 underline-offset-4 dark:text-zinc-300 dark:decoration-sky-600;
   }
 }
