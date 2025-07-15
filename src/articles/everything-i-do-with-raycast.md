@@ -11,19 +11,19 @@ In the last 50 days, they released their [iOS app](https://www.raycast.com/ios),
 [Windows Beta](https://x.com/thomaspaulmann/status/1937887427852488719) and got sherlocked ([or not?](https://x.com/thomaspaulmann/status/1932406174344757379)) by Apple, when they announced a
 revolutionary update to the macOS Spotlight.
 
-Since I wrote [Raycast: Second Impressions](https://www.lukeberrypi.com/articles/raycast-second-impressions) a year ago I've spent hundreds of hours understanding Raycast and trying to get the most of it. It's time to write about it again.
+Since I wrote [Raycast: Second Impressions](https://www.lukeberrypi.com/articles/raycast-second-impressions) a year ago, I've spent over 200 hours understanding Raycast and trying to get the most of it. It's time to write about it again.
 
 Here's Everything I do with Raycast. Buckle up!
 
 ## Opening Applications
 
-On any MacBook, you can hit `⌘` `space`, write the name of an app and open it. Of course you can do that in Raycast too.
+On any MacBook, you can press `⌘` `space`, write the name of an app and open it. Of course you can do that in Raycast too.
 
 But can we make that quicker? Especially for apps that you open a lot? Yes, by **opening apps with a hotkey**.
 
 The cherry on top is that pressing the hotkey again hides the app, making it super easy to toggle between different apps. Probably the biggest ROI tip in this article.
 
-I open/close these at least 200 times a day:
+I press these hotkeys at least 500 times a day:
 
 - `⌘` `esc` -> Terminal
 - `⌥` `I` -> Visual Studio Code
@@ -122,13 +122,13 @@ Extensions I can no longer live without.
 
 > `Show Latest Download` `⌥` `D`
 
-Shows, opens or copies the last download. Very useful for quickly installing apps by opening the `.dmg` or previewing videos that you've downloaded. And for quickly copying the last image you downloaded. [Download](#)
+Shows, opens or copies the last download. Very useful for quickly installing apps by opening the `.dmg` or previewing videos that you've downloaded. And for quickly copying the last image you downloaded. [Download it](#)
 
 ### Color Picker
 
 > `Pick Color` `⌥` `C`
 
-Grab the color of any pixel on your screen. I've used alternatives in the past but they either had poor UX or were constrained to the browser. Extra marks for supporting other color formats such as OKLCH. [Download](#)
+Grab the color of any pixel on your screen. I've used alternatives in the past but they either had poor UX or were constrained to the browser. Extra marks for supporting other color formats such as OKLCH. [Download it](#)
 
 ### Spotify Controls
 
@@ -136,37 +136,37 @@ Grab the color of any pixel on your screen. I've used alternatives in the past b
 - `Next Song` `⌥` `]`
 - `Previous Song` `⌥` `[`
 
-. You may ask: "Why not use the dedicated media controls (F7, F8, F9) on the MacBook? Because if you're watching a youtube video, that's what they will control. It varies depending on what you're playing. [Download](#)
+. You may ask: "Why not use the dedicated media controls (F7, F8, F9) on the MacBook? Because if you're watching a youtube video, that's what they will control. It varies depending on what you're playing. [Download it](#)
 
 ### Google Translate
 
 > `Quick Translate` `Alias: t`
 
-Type in one language [EN, PT, ES, IT, FR] and receive translations in all languages instantly [Download](#)
+Type in one language [EN, PT, ES, IT, FR] and receive translations in all languages instantly [Download it](#)
 
 ### Toothpick
 
 > `Manage Bluetooth Connections` `⌥` `B`
 
-Connect/disconnect from your Bluetooth devices. [Download](#)
+Connect/disconnect from your Bluetooth devices. [Download it](#)
 
 ### Image Tools
 
-Compress and convert images. Useful for converting that photo you AirDropped to PNG. [Download](#)
+Compress and convert images. Useful for converting that photo you AirDropped to PNG. [Download it](#)
 
 ## Surprising
 
-Extensions I didn't expect to exist and I use frequently. [Download](#)
+Extensions I didn't expect to exist and I use frequently. [Download it](#)
 
 ### Change Case
 
-What a gem. Change case reads your selected text and replaces it with changed casing: UPPERCASE, lowercase, kebab-case. You name it. [Download](#)
+What a gem. Change case reads your selected text and replaces it with changed casing: UPPERCASE, lowercase, kebab-case. You name it. [Download it](#)
 
 ### Unsplash
 
 > `Search Images` `⌥` `U`
 
-Download and copy images the biggest stock photo archive in the internet. [Download](#)
+Download and copy images the biggest stock photo archive in the internet. [Download it](#)
 
 ## Quirky
 
@@ -175,21 +175,20 @@ Fun extensions I use once in a while.
 ### Premier League
 
 > `Show Table` `Alias: pl`
-> `Show Table` `Alias: pl`
 
-Premier League table, fixtures and results. For the footy fanatic. [Download](#)
+Premier League table, fixtures and results. For the footy fanatic. [Download it](#)
 
 ### Fancy text
 
-Create 𝓯𝓪𝓷𝓬𝔂 𝓽𝓮𝔁𝓽 in seconds with Raycast [Download](#)
+Create 𝓯𝓪𝓷𝓬𝔂 𝓽𝓮𝔁𝓽 in seconds with Raycast [Download it](#)
 
 ### Keyboard Lock
 
-Have you ever tried to clean your MacBook keyboard? I know you haven't. But if you accidentally drop some bread crumbs on it, just use this extension to deactivate your keyboard and clean them off. [Download](#)
+Have you ever tried to clean your MacBook keyboard? I know you haven't. But if you accidentally drop some bread crumbs on it, just use this extension to deactivate your keyboard and clean them off. [Download it](#)
 
 ### Get Youtube Thumbnail
 
-Let's say you just posted a video and want to share it on X. How do you get the thumbnail? Drop the link into this extension. Alternatively, visit the dozens of websites that do this and get flooded with ads. [Download](#)
+Let's say you just posted a video and want to share it on X. How do you get the thumbnail? Drop the link into this extension. Alternatively, visit the dozens of websites that do this and get flooded with ads. [Download it](#)
 
 ## Money Talks
 
