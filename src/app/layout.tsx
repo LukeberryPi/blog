@@ -5,7 +5,7 @@ import "./globals.css";
 import { ScrollToTop } from "../components/scroll-to-top";
 import Script from "next/script";
 import dynamic from "next/dynamic";
-import { Analytics } from "@vercel/analytics/next";
+// import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Luke Berry",
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-screen">
       <body className={`${karla.className} min-h-full px-6`}>
-        <Analytics />
+        {/*<Analytics />*/}
         <Script id="theme-toggle" strategy="afterInteractive">
           {`document.documentElement.classList.toggle("dark", localStorage.theme ===
         "dark" || (!("theme" in localStorage) &&
