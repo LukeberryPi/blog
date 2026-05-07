@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, GitBranch, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, GitBranch, ShieldCheck, Store } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "StarScout Extension | Arthur Nunes",
   description:
-    "A browser extension that shows heuristic suspected non-legit star signals on public GitHub repositories.",
+    "Browser extension and backend API for showing StarScout-derived suspected non-legit star signals on public GitHub repositories.",
 };
 
 export default function StarScoutExtensionPage() {
@@ -19,43 +19,98 @@ export default function StarScoutExtensionPage() {
           StarScout Extension
         </h1>
         <p>
-          StarScout shows heuristic suspected non-legit star signals on public
-          GitHub repository pages. It adds a small badge near GitHub&apos;s native
-          star count and opens a popover with aggregate metrics and dataset
-          attribution.
+          Browser extension and backend API for showing StarScout-derived
+          suspected non-legit star signals on public GitHub repository pages.
         </p>
         <p>
-          Results are bounded by the StarScout dataset cutoff, currently
-          <code>2025-01-01</code>.
+          The extension adds a <code>StarScout</code> badge near GitHub&apos;s native
+          repository star count and opens a details popover with aggregate
+          metrics and attribution.
         </p>
       </header>
 
-      <section className="grid gap-3 sm:grid-cols-2">
+      <section className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <img
+            alt="StarScout desktop badge with aggregate star integrity signal"
+            src="/projects/starscout-extension/starscout-badge-desktop.png"
+          />
+        </div>
+        <div>
+          <img
+            alt="StarScout badge on a narrower GitHub layout"
+            src="/projects/starscout-extension/starscout-badge-mobile.png"
+          />
+        </div>
+      </section>
+
+      <section className="space-y-3">
         <a
-          href="https://github.com/arthurnunesc/starscout-extension"
+          href="https://chromewebstore.google.com/detail/starscout-see-suspected-n/ddnenpmampfmhlndeebggeoaehjmdmnb"
           target="_blank"
           className="group flex items-center justify-between rounded p-4 ring-1 ring-zinc-400 transition-transform sm:hover:bg-zinc-100 dark:ring-zinc-500 sm:dark:hover:bg-zinc-800"
         >
           <span className="flex items-center gap-3">
-            <GitBranch strokeWidth={1.4} className="size-5" /> View code
+            <Store strokeWidth={1.4} className="size-5" /> Chrome Web Store page
           </span>
           <ArrowUpRight
             strokeWidth={1.4}
             className="size-5 transition-transform sm:group-hover:rotate-45"
           />
         </a>
-        <Link
-          href="/projects/starscout-extension/privacy"
-          className="group flex items-center justify-between rounded p-4 ring-1 ring-zinc-400 transition-transform sm:hover:bg-zinc-100 dark:ring-zinc-500 sm:dark:hover:bg-zinc-800"
-        >
-          <span className="flex items-center gap-3">
-            <ShieldCheck strokeWidth={1.4} className="size-5" /> Privacy policy
-          </span>
-          <ArrowUpRight
-            strokeWidth={1.4}
-            className="size-5 transition-transform sm:group-hover:rotate-45"
-          />
-        </Link>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <a
+            href="https://github.com/arthurnunesc/starscout-extension"
+            target="_blank"
+            className="group flex items-center justify-between rounded p-4 ring-1 ring-zinc-400 transition-transform sm:hover:bg-zinc-100 dark:ring-zinc-500 sm:dark:hover:bg-zinc-800"
+          >
+            <span className="flex items-center gap-3">
+              <GitBranch strokeWidth={1.4} className="size-5" /> View code
+            </span>
+            <ArrowUpRight
+              strokeWidth={1.4}
+              className="size-5 transition-transform sm:group-hover:rotate-45"
+            />
+          </a>
+          <Link
+            href="/projects/starscout-extension/privacy"
+            className="group flex items-center justify-between rounded p-4 ring-1 ring-zinc-400 transition-transform sm:hover:bg-zinc-100 dark:ring-zinc-500 sm:dark:hover:bg-zinc-800"
+          >
+            <span className="flex items-center gap-3">
+              <ShieldCheck strokeWidth={1.4} className="size-5" /> Privacy policy
+            </span>
+            <ArrowUpRight
+              strokeWidth={1.4}
+              className="size-5 transition-transform sm:group-hover:rotate-45"
+            />
+          </Link>
+        </div>
+
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          Results are bounded by the StarScout dataset cutoff, currently{" "}
+          <code>2025-01-01</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Usage</h2>
+        <ol>
+          <li>
+            Install StarScout from the{" "}
+            <a
+              href="https://chromewebstore.google.com/detail/starscout-see-suspected-n/ddnenpmampfmhlndeebggeoaehjmdmnb"
+              target="_blank"
+            >
+              Chrome Web Store
+            </a>
+            .
+          </li>
+          <li>
+            Open a public GitHub repository page and look for the{" "}
+            <code>StarScout</code> badge near GitHub&apos;s native star control.
+          </li>
+        </ol>
       </section>
 
       <section>
@@ -132,7 +187,6 @@ export default function StarScoutExtensionPage() {
           </li>
         </ul>
       </section>
-
     </article>
   );
 }
