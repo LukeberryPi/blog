@@ -7,6 +7,8 @@ interface Project {
   description: string;
   imageUrl: string;
   imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
   githubUrl: string;
   url?: string;
   technologies: ReactNode;
@@ -19,6 +21,8 @@ const projects: Project[] = [
       "Browser extension and backend API for showing StarScout-derived suspected non-legit star signals on public GitHub repository pages.",
     imageUrl: "/projects/starscout-extension.png",
     imageAlt: "StarScout badge showing a suspected stars percentage on GitHub",
+    imageWidth: 1788,
+    imageHeight: 1012,
     githubUrl: "https://github.com/arthurnunesc/starscout-extension",
     url: "/projects/starscout-extension",
     technologies: (
@@ -41,6 +45,33 @@ const projects: Project[] = [
       </div>
     ),
   },
+  {
+    name: "Darkest Companion",
+    description:
+      "A Darkest Dungeon companion for planning expeditions: provisions, curios and location tips.",
+    imageUrl: "/projects/darkest-companion.png",
+    imageAlt: "Darkest Companion expedition planner interface",
+    imageWidth: 2692,
+    imageHeight: 1200,
+    githubUrl: "https://github.com/arthurnunesc/darkest-companion",
+    url: "https://darkest-companion.arthurnun.es",
+    technologies: (
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="rounded-full bg-[#FF3E00] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          SvelteKit
+        </span>
+        <span className="rounded-full bg-[#646CFF] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          Vite
+        </span>
+        <span className="rounded-full bg-[#FF3E00] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          Svelte 5
+        </span>
+        <span className="rounded-full bg-[#06B6D4] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          Tailwind
+        </span>
+      </div>
+    ),
+  },
 ];
 
 function ProjectCard({
@@ -48,6 +79,8 @@ function ProjectCard({
   description,
   imageUrl,
   imageAlt,
+  imageWidth,
+  imageHeight,
   githubUrl,
   url,
   technologies,
@@ -61,7 +94,7 @@ function ProjectCard({
       <div>
         <p className="p-4">{description}</p>
       </div>
-      <Image src={imageUrl} width={1788} height={1012} alt={imageAlt} />
+      <Image src={imageUrl} width={imageWidth} height={imageHeight} alt={imageAlt} />
       <div className="flex w-full justify-between divide-x divide-zinc-400 dark:divide-zinc-500">
         {url && (
           <a
