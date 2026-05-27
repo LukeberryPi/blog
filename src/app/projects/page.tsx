@@ -16,6 +16,33 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Friendship Garden",
+    description:
+      "A web app to keep track of when you last spoke with your friends. Add contacts, log interactions, and never let too much time pass without reaching out.",
+    imageUrl: "/projects/friendship-garden.png",
+    imageAlt: "Friendship Garden interface",
+    imageWidth: 836,
+    imageHeight: 464,
+    githubUrl: "https://github.com/arthurnunesc/friendship-garden",
+    url: "https://friendship-garden.arthurnun.es",
+    technologies: (
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="rounded-full bg-[#00D8FE] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">
+          React
+        </span>
+        <span className="rounded-full bg-[#007ACC] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          TypeScript
+        </span>
+        <span className="rounded-full bg-[#646CFF] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          Vite
+        </span>
+        <span className="rounded-full bg-[#6EAA3E] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">
+          Vitest
+        </span>
+      </div>
+    ),
+  },
+  {
     name: "StarScout Extension",
     description:
       "Browser extension and backend API for showing StarScout-derived suspected non-legit star signals on public GitHub repository pages.",
