@@ -1,5 +1,13 @@
-import { getArticleData } from "@/src/lib/articles";
+import { getArticleData, getArticles } from "@/src/lib/articles";
 import { Article } from "../../../components/article";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getArticles().map((article) => ({
+    slug: article.id,
+  }));
+}
 
 function Tag({ tag }: { tag: string }) {
   return (
@@ -14,24 +22,7 @@ export default async function ArticlePage({
 }: {
   params: { slug: string };
 }) {
-  let articleData;
-  try {
-    articleData = await getArticleData(params.slug);
-  } catch (error) {
-    return (
-      <div className="flex flex-col items-center justify-center gap-6 py-16">
-        <h1 className="text-5xl max-sm:text-3xl">
-          This article doesn&apos;t exist.
-        </h1>
-        <a
-          href="/blog"
-          className="underline decoration-sky-500 underline-offset-4 dark:decoration-sky-600"
-        >
-          Read something else
-        </a>
-      </div>
-    );
-  }
+  const articleData = await getArticleData(params.slug);
 
   return (
     <>

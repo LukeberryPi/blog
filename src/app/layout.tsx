@@ -5,7 +5,6 @@ import "./globals.css";
 import { ScrollToTop } from "../components/scroll-to-top";
 import Script from "next/script";
 import dynamic from "next/dynamic";
-// import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Arthur Nunes",
@@ -49,7 +48,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${firaSans.className} min-h-full px-6`}>
-        {/*<Analytics />*/}
         <Header />
         <main className="mx-auto max-w-prose pb-4">
           {children}

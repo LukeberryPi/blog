@@ -2,10 +2,10 @@
     <channel>
         <title><![CDATA[Arthur Nunes Blog]]></title>
         <description><![CDATA[This is my blog]]></description>
-        <link>http://localhost:3000</link>
+        <link>https://lukeberrypi.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 01 Apr 2026 20:36:41 GMT</lastBuildDate>
-        <atom:link href="http://localhost:3000/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Thu, 28 May 2026 08:48:32 GMT</lastBuildDate>
+        <atom:link href="https://lukeberrypi.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[First steps with ShellScripting]]></title>
@@ -63,8 +63,8 @@ In contrast, for bash I found a lot less content, but because of the objectivity
 I had a great time learning to write ShellScript and I feel revigorated after writing different code for a while, sometimes a simple change for a week or two can help you a lot!
 
 #### Thank you for reading!]]></description>
-            <link>http://localhost:3000/articles/first-steps-with-shellscripting</link>
-            <guid isPermaLink="true">http://localhost:3000/articles/first-steps-with-shellscripting</guid>
+            <link>https://lukeberrypi.com/articles/first-steps-with-shellscripting</link>
+            <guid isPermaLink="true">https://lukeberrypi.com/articles/first-steps-with-shellscripting</guid>
             <pubDate>Wed, 26 Aug 2020 00:00:00 GMT</pubDate>
         </item>
     </channel>
