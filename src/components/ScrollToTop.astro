@@ -1,4 +1,5 @@
 ---
+import ArrowUp from "@lucide/astro/icons/arrow-up";
 ---
 
 <button
@@ -7,14 +8,14 @@
   class="opacity-0 fixed z-10 items-center gap-2 rounded bg-zinc-50 py-2 pl-4 pr-3 ring-1 ring-zinc-400 transition-transform sm:right-8 sm:top-8 sm:flex sm:hover:bg-zinc-100 dark:bg-zinc-900 dark:ring-zinc-500 sm:hover:dark:bg-zinc-800"
 >
   Back to top
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
+  <ArrowUp class="size-4" />
 </button>
 <button
   data-scroll-top
   aria-label="Scroll to top"
   class="opacity-0 fixed z-10 items-center gap-2 rounded bg-zinc-50 p-3 ring-1 ring-zinc-400 transition-transform max-sm:bottom-6 max-sm:right-6 max-sm:flex sm:hover:bg-zinc-100 dark:bg-zinc-900 dark:ring-zinc-500 sm:hover:dark:bg-zinc-800"
 >
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
+  <ArrowUp class="size-5" />
 </button>
 
 <script>

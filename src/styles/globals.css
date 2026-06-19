@@ -6,6 +6,23 @@
   font-family: "Karla", sans-serif;
 }
 
+[data-theme-icon] {
+  display: none;
+}
+
+html[data-theme="system"] [data-theme-icon="system"],
+html:not([data-theme]) [data-theme-icon="system"] {
+  display: block;
+}
+
+html[data-theme="light"] [data-theme-icon="light"] {
+  display: block;
+}
+
+html[data-theme="dark"] [data-theme-icon="dark"] {
+  display: block;
+}
+
 html.dark .astro-code,
 html.dark .astro-code span {
   color: var(--shiki-dark) !important;

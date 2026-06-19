@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Globe from "@lucide/astro/icons/globe";
+import GitBranch from "@lucide/astro/icons/git-branch";
 
 const projects = [
   {
@@ -57,16 +59,14 @@ const projects = [
               target="_blank"
               class="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg>{" "}
-              Visit website
+              <Globe class="size-5" stroke-width={1.4} /> Visit website
             </a>
             <a
               href={project.githubUrl}
               target="_blank"
               class="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5"><line x1="6" x2="6" y1="3" y2="15" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" /></svg>{" "}
-              View code
+              <GitBranch class="size-5" stroke-width={1.4} /> View code
             </a>
           </div>
         </div>

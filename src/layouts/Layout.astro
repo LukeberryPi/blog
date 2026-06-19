@@ -31,17 +31,19 @@ const footerLinks = [
     <script is:inline>
       (function () {
         try {
-          const theme = localStorage.getItem("theme");
+          const stored = localStorage.getItem("theme");
+          const theme =
+            stored === "light" || stored === "dark" ? stored : "system";
           const systemPrefersDark = window.matchMedia(
             "(prefers-color-scheme: dark)",
           ).matches;
+          const isDark =
+            theme === "dark" || (theme === "system" && systemPrefersDark);
 
-          if (theme === "dark" || (!theme && systemPrefersDark)) {
-            document.documentElement.classList.add("dark");
-          } else {
-            document.documentElement.classList.remove("dark");
-          }
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.classList.toggle("dark", isDark);
         } catch (e) {
+          document.documentElement.dataset.theme = "system";
           if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
             document.documentElement.classList.add("dark");
           }

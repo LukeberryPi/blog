@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import Copy from "@lucide/astro/icons/copy";
+import Check from "@lucide/astro/icons/check";
+import Download from "@lucide/astro/icons/download";
 
 const externalLinks = [
   {
@@ -64,10 +68,10 @@ const externalLinks = [
                 {link.description}
               </span>
             </span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5 shrink-0 text-zinc-800 transition-transform sm:group-hover:rotate-45 dark:text-zinc-200">
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
+            <ArrowUpRight
+              class="size-5 shrink-0 text-zinc-800 transition-transform sm:group-hover:rotate-45 dark:text-zinc-200"
+              stroke-width={1.4}
+            />
           </a>
         ))
       }
@@ -87,8 +91,8 @@ const externalLinks = [
               aria-label="Copy email"
               class="text-zinc-800 dark:text-zinc-200"
             >
-              <svg data-copy-icon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-              <svg data-check-icon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="hidden size-4"><path d="M20 6 9 17l-5-5"></path></svg>
+              <Copy data-copy-icon class="size-4" stroke-width={1.4} />
+              <Check data-check-icon class="hidden size-4" stroke-width={1.4} />
             </button>
           </div>
         </div>
@@ -106,7 +110,7 @@ const externalLinks = [
           class="flex flex-row items-center justify-center gap-3 rounded bg-sky-300 p-4 text-sky-800 ring-1 ring-sky-500 transition-transform sm:hover:bg-sky-400 dark:bg-inherit dark:text-sky-500 dark:ring-sky-500 sm:sm:dark:hover:bg-zinc-800"
         >
           <span class="text-nowrap">Download my CV</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5 max-sm:hidden"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+          <Download class="size-5 max-sm:hidden" stroke-width={1.4} />
         </a>
       </div>
     </div>
