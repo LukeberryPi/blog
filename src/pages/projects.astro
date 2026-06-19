@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const projects = [
+  {
+    name: "css2wind",
+    description:
+      "Learn TailwindCSS by playing a minigame: there are eight CSS properties that you must translate to the equivalent TailwindCSS utility. Bet you can't get 8/8.",
+    url: "https://css2wind.com",
+    imageUrl: "/projects/css2wind.png",
+    githubUrl: "https://github.com/LukeberryPi/css2wind",
+    technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-[#007ACC] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">TypeScript</span><span class="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">TailwindCSS</span><span class="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Next.js</span></div>`,
+  },
+  {
+    name: "King's Cross Cinema Schedule",
+    description:
+      "A simpler way to visualize the movies in the Everyman in the Canal 2025 in London. I watched Mean Girls and it was amazing.",
+    url: "https://kings-cross-cinema-schedule-2025.vercel.app/",
+    imageUrl: "/projects/cinema-schedule.png",
+    githubUrl: "https://github.com/LukeberryPi/kings-cross-cinema-website",
+    technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-[#FF5D01] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">Astro</span><span class="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">Tailwind</span><span class="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-none dark:ring-1 dark:ring-zinc-500">Vercel</span></div>`,
+  },
+  {
+    name: "phived",
+    description:
+      "Stop procrastinating by dealing with five tasks at a time. If you want to add more tasks you need to resolve a previous one. Surprisingly effective.",
+    url: "https://phived.com",
+    imageUrl: "/projects/phived.png",
+    githubUrl: "https://github.com/LukeberryPi/phived",
+    technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-[#00D8FE] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">React</span><span class="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">TailwindCSS</span><span class="rounded-full bg-gradient-to-r from-[#926AFE] to-[#49C7FF] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-none dark:ring-1 dark:ring-zinc-500">Vite</span></div>`,
+  },
+];
+---
+
+<Layout>
+  <h1 class="mb-16 mt-4 text-center text-5xl max-sm:text-4xl">Projects</h1>
+  <div class="space-y-20">
+    {
+      projects.map((project) => (
+        <div class="flex-col divide-y divide-zinc-400 dark:divide-zinc-500 overflow-hidden rounded ring-1 dark:zinc-500 dark:ring-zinc-500 ring-zinc-400">
+          <div class="flex items-center justify-between gap-4 p-4 max-sm:flex-col">
+            <h2 class="text-xl">{project.name}</h2>
+            <Fragment set:html={project.technologies} />
+          </div>
+          <div>
+            <p class="p-4">{project.description}</p>
+          </div>
+          <img
+            src={project.imageUrl}
+            width={1200}
+            height={630}
+            alt={`${project.name} preview`}
+          />
+          <div class="flex w-full justify-between divide-x divide-zinc-400 dark:divide-zinc-500">
+            <a
+              href={project.url}
+              target="_blank"
+              class="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg>{" "}
+              Visit website
+            </a>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              class="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5"><line x1="6" x2="6" y1="3" y2="15" /><circle cx="18" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M18 9a9 9 0 0 1-9 9" /></svg>{" "}
+              View code
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Layout>

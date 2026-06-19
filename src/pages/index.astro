@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const externalLinks = [
+  {
+    name: "LinkedIn",
+    description: "follow my career",
+    url: "https://linkedin.com/in/lukeberrypi",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="fill-[#0077B5] dark:fill-zinc-200"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+  },
+  {
+    name: "GitHub",
+    description: "steal my code",
+    url: "https://github.com/lukeberrypi",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`,
+  },
+  {
+    name: "YouTube",
+    description: "watch me talk",
+    url: "https://youtube.com/@lukeberrypi",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="fill-[#FF0032] dark:fill-zinc-200"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
+  },
+  {
+    name: "X (formerly Twitter)",
+    description: "read my mind",
+    url: "https://x.com/lukeberrypi",
+    icon: `<svg viewBox="0 0 24 24" width="20" height="20" class="ml-1"><g><path class="fill-zinc-950 dark:fill-zinc-200" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>`,
+  },
+  {
+    name: "10% OFF Raycast Pro",
+    description: "upgrade your workflow",
+    url: "https://www.raycast.com/pro?via=lukeberrypi",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="26" fill="none" viewBox="0 0 48 48"><path class="fill-[#FF6362] dark:fill-zinc-200" fill-rule="evenodd" d="M12 30.99V36L-.01 23.99l2.516-2.499zM17.01 36H12l12.011 12.01 2.506-2.505zm28.487-9.497L48 24 24 0l-2.503 2.503L30.98 12h-5.732l-6.62-6.614-2.506 2.503 4.122 4.122h-2.869v18.625H36V27.77l4.122 4.122 2.503-2.506L36 22.747v-5.732zM13.253 10.747l-2.503 2.506 2.686 2.686 2.503-2.506zm21.314 21.314-2.495 2.503 2.686 2.686 2.506-2.503zM7.878 16.121l-2.503 2.504L12 25.253v-5.012zM27.756 36h-5.009l6.628 6.625 2.503-2.503z" clip-rule="evenodd"></path></svg>`,
+  },
+  {
+    name: "$20 FREE Railway Credits",
+    description: "deploy everything easily",
+    url: "https://railway.com?referralCode=QK83dp",
+    icon: `<svg fill="none" viewBox="0 0 1024 1024" width="24" class="ml-px"><path d="M4.8 438.2A520.7 520.7 0 000 489.7h777.8c-2.7-5.3-6.4-10-10-14.7-133-171.8-204.5-157-306.9-161.3-34-1.4-57.2-2-193-2-72.7 0-151.7.2-228.6.4A621 621 0 0015 386.3h398.6v51.9H4.8zm779.1 103.5H.4c.8 13.8 2.1 27.5 4 41h723.4c32.2 0 50.3-18.3 56.1-41zM45 724.3s120 294.5 466.5 299.7c207 0 385-123 465.9-299.7H45z" class="fill-zinc-950 dark:fill-zinc-200"></path><path d="M511.5 0A512.2 512.2 0 0065.3 260.6l202.7-.2c158.4 0 164.2.6 195.2 2l19.1.6c66.7 2.3 148.7 9.4 213.2 58.2 35 26.5 85.6 85 115.7 126.5 27.9 38.5 35.9 82.8 17 125.2-17.5 39-55 62.2-100.4 62.2H16.7s4.2 18 10.6 37.8h970.6a510.4 510.4 0 0026.1-160.7A512.4 512.4 0 00511.5 0z" class="fill-zinc-950 dark:fill-zinc-200"></path></svg>`,
+  },
+];
+---
+
+<Layout>
+  <div class="flex flex-col gap-6">
+    <p class="text-sm">
+      London-based Brazilian obsessed with UI for a decade. Working as a
+      Software Engineer for half that time. I love Raycast, TailwindCSS, DJing,
+      playing football, and creating pretty websites.
+    </p>
+    <div
+      class="divide-y divide-zinc-400 overflow-hidden rounded ring-1 ring-zinc-400 dark:divide-zinc-500 dark:ring-zinc-500"
+    >
+      {
+        externalLinks.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            class="group flex items-center justify-between p-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
+          >
+            <span class="flex items-center gap-4">
+              <Fragment set:html={link.icon} /> {link.name}
+              <span class="text-zinc-500 opacity-0 transition-transform max-sm:hidden sm:group-hover:opacity-100 dark:text-zinc-400">
+                {link.description}
+              </span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5 shrink-0 text-zinc-800 transition-transform sm:group-hover:rotate-45 dark:text-zinc-200">
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </a>
+        ))
+      }
+    </div>
+    <div
+      class="flex justify-center gap-6 max-sm:flex-col-reverse sm:justify-between"
+    >
+      <div class="flex flex-col justify-center gap-4 max-sm:items-center">
+        <div
+          class="group -m-8 flex select-all items-center gap-3 p-8 transition-transform"
+        >
+          lukeberrypi@gmail.com
+          <div class="inline-flex items-center gap-3">
+            <button
+              id="copy-email"
+              type="button"
+              aria-label="Copy email"
+              class="text-zinc-800 dark:text-zinc-200"
+            >
+              <svg data-copy-icon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-4"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+              <svg data-check-icon xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="hidden size-4"><path d="M20 6 9 17l-5-5"></path></svg>
+            </button>
+          </div>
+        </div>
+        <span
+          class="-mt-2 inline-flex w-fit items-center gap-1 rounded-full bg-green-100 px-2 py-0.5 text-sm text-green-600 ring-1 ring-green-500 dark:bg-transparent dark:text-emerald-500 dark:ring-emerald-500"
+        >
+          <div class="size-2 animate-pulse rounded-full bg-green-500 dark:bg-emerald-500"></div>
+          Online
+        </span>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a
+          href="/luke-berry-cv.pdf"
+          download="Luke-Berry-CV.pdf"
+          class="flex flex-row items-center justify-center gap-3 rounded bg-sky-300 p-4 text-sky-800 ring-1 ring-sky-500 transition-transform sm:hover:bg-sky-400 dark:bg-inherit dark:text-sky-500 dark:ring-sky-500 sm:sm:dark:hover:bg-zinc-800"
+        >
+          <span class="text-nowrap">Download my CV</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="size-5 max-sm:hidden"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const email = "lukeberrypi@gmail.com";
+  const copyButton = document.getElementById("copy-email");
+  const copyIcon = copyButton?.querySelector<SVGElement>("[data-copy-icon]");
+  const checkIcon = copyButton?.querySelector<SVGElement>("[data-check-icon]");
+  let resetTimeout: ReturnType<typeof setTimeout> | undefined;
+
+  async function copyToClipboard(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      const success = document.execCommand("copy");
+      document.body.removeChild(textarea);
+      return success;
+    }
+  }
+
+  copyButton?.addEventListener("click", async () => {
+    const copied = await copyToClipboard(email);
+    if (!copied) return;
+
+    copyIcon?.classList.add("hidden");
+    checkIcon?.classList.remove("hidden");
+    clearTimeout(resetTimeout);
+    resetTimeout = setTimeout(() => {
+      checkIcon?.classList.add("hidden");
+      copyIcon?.classList.remove("hidden");
+    }, 3000);
+  });
+</script>

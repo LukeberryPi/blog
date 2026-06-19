@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Luke Berry's blog
 
-## Getting Started
+A personal website and blog built with [Astro](https://astro.build/), [React](https://react.dev/) islands, and [Tailwind CSS](https://tailwindcss.com/). Articles are authored as markdown in `src/articles/` and rendered via Astro content collections.
 
-First, run the development server:
+## Getting started
+
+Install dependencies and run the development server with [Bun](https://bun.sh/):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4321](http://localhost:4321) to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `bun run dev` - start the dev server
+- `bun run build` - build the static site to `dist/`
+- `bun run preview` - preview the production build locally
+- `bun run start` - serve the production build on `$PORT` (used in deployment)
 
-## Learn More
+## Writing articles
 
-To learn more about Next.js, take a look at the following resources:
+Add a markdown file to `src/articles/` with frontmatter:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```md
+---
+title: "My article"
+date: "2026-01-01"
+tags: ["technology"]
+location: "London, United Kingdom"
+---
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Deployed on [Railway](https://railway.com/) using the configuration in `railway.json`: it builds with `bun run build` and serves the static output with `astro preview`.

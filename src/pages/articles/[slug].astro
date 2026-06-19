@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { formatLong } from "../../lib/date";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} - Luke Berry`}>
+  <div class="flex flex-col items-center justify-center p-8">
+    <div class="text-sm text-zinc-500 max-sm:text-xs dark:text-zinc-400">
+      {formatLong(entry.data.date)} {"//"} {entry.data.location}
+    </div>
+    <div
+      class="flex w-full max-w-prose flex-col items-center justify-center gap-4 px-4 pb-6 pt-1"
+    >
+      <h1 class="text-center text-5xl leading-tight max-sm:text-3xl">
+        {entry.data.title}
+      </h1>
+      <div class="flex flex-wrap gap-x-3">
+        {
+          entry.data.tags.map((tag) => (
+            <div class="flex size-4 w-fit items-center justify-center rounded-full px-2 py-3 text-xs ring-1 ring-zinc-400 dark:ring-1 dark:ring-zinc-500">
+              #{tag}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <article>
+    <Content />
+  </article>
+</Layout>
+
+<script>
+  document.querySelectorAll("article a").forEach((a) => {
+    a.setAttribute("target", "_blank");
+    a.setAttribute("rel", "noopener noreferrer");
+  });
+</script>
