@@ -1,0 +1,114 @@
+---
+import ChevronLeft from "@lucide/astro/icons/chevron-left";
+import Laptop from "@lucide/astro/icons/laptop";
+import Sun from "@lucide/astro/icons/sun";
+import Moon from "@lucide/astro/icons/moon";
+import Triangle from "@lucide/astro/icons/triangle";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isHome = pathname === "/";
+
+const navLinks = [
+  { href: "/projects", label: "/projects", ariaLabel: "View projects", active: pathname === "/projects" },
+  { href: "/articles", label: "/articles", ariaLabel: "View articles", active: pathname.startsWith("/articles") },
+  { href: "/about", label: "/about", ariaLabel: "View about page", active: pathname === "/about" },
+];
+---
+
+<header class="mx-auto max-w-prose py-8 max-sm:pt-4">
+  <nav class="flex items-center justify-between max-sm:flex-col max-sm:gap-6">
+    <a
+      class={`group relative -m-12 -my-2 -mr-4 flex items-center rounded py-2 pl-12 pr-4 ${isHome ? "ring-0" : "sm:hover:ring-1"} ring-sky-500 transition-transform max-sm:text-center dark:ring-sky-600`}
+      href="/"
+      aria-label="Back to home"
+    >
+      <div
+        class={`${isHome ? "hidden" : "absolute"} left-1 flex size-4 h-full w-12 items-center px-2`}
+      >
+        <ChevronLeft stroke-width={1.4} />
+      </div>
+      <div class="flex flex-col max-sm:items-center">
+        Luke Berry
+        <span class="text-zinc-500 dark:text-zinc-400">Software Engineer</span>
+      </div>
+    </a>
+    <div class="flex items-center gap-4">
+      <button id="theme-toggle" class="group relative flex items-center" aria-label="Switch theme">
+        <Laptop
+          data-theme-icon="system"
+          class="size-5 fill-zinc-300/50 transition-transform sm:group-hover:-rotate-6 dark:fill-zinc-400/40"
+          stroke-width={1.4}
+        />
+        <Sun
+          data-theme-icon="light"
+          class="size-5 fill-yellow-300 transition-transform sm:group-hover:rotate-45"
+          stroke-width={1.4}
+        />
+        <Moon
+          data-theme-icon="dark"
+          class="size-5 fill-gray-700 transition-transform sm:group-hover:-rotate-6"
+          stroke-width={1.4}
+        />
+      </button>
+      {
+        navLinks.map((link) => (
+          <a
+            class="group relative rounded px-2 py-px sm:hover:ring-1 ring-sky-500 transition-transform dark:ring-sky-600"
+            href={link.href}
+            aria-label={link.ariaLabel}
+            aria-current={link.active ? "page" : undefined}
+          >
+            {link.label}
+            <Triangle
+              aria-hidden="true"
+              class="absolute left-1/2 mt-1 hidden size-2 fill-sky-500 text-zinc-800 group-aria-[current=page]:block dark:fill-sky-600 dark:text-transparent"
+              stroke-width={2}
+            />
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
+<script>
+  type Theme = "system" | "light" | "dark";
+
+  const cycle: Record<Theme, Theme> = {
+    system: "light",
+    light: "dark",
+    dark: "system",
+  };
+
+  function getTheme(): Theme {
+    const stored = localStorage.getItem("theme");
+    return stored === "light" || stored === "dark" ? stored : "system";
+  }
+
+  function applyTheme(theme: Theme) {
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const isDark = theme === "dark" || (theme === "system" && systemPrefersDark);
+
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.toggle("dark", isDark);
+
+    if (theme === "system") {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", theme);
+    }
+  }
+
+  const toggle = document.getElementById("theme-toggle");
+  toggle?.addEventListener("click", () => {
+    applyTheme(cycle[getTheme()]);
+  });
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", () => {
+      if (getTheme() === "system") applyTheme("system");
+    });
+</script>

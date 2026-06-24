@@ -1,17 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --sh-class: #2563eb; /* blue-600 */
-  --sh-identifier: #8b5cf6; /* violet-600 */
-  --sh-sign: #a1a1aa; /* slate-400 */
-  --sh-property: #0d9488; /* teal-600 */
-  --sh-entity: #10b981; /* emerald-500 */
-  --sh-jsxliterals: #c026d3; /* fuchsia-600 */
-  --sh-string: #0891b2; /* cyan-600 */
-  --sh-keyword: #ef4444; /* red-500 */
-  --sh-comment: #64748b; /* slate-500 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+.font-karla {
+  font-family: "Karla", sans-serif;
+}
+
+[data-theme-icon] {
+  display: none;
+}
+
+html[data-theme="system"] [data-theme-icon="system"],
+html:not([data-theme]) [data-theme-icon="system"] {
+  display: block;
+}
+
+html[data-theme="light"] [data-theme-icon="light"] {
+  display: block;
+}
+
+html[data-theme="dark"] [data-theme-icon="dark"] {
+  display: block;
+}
+
+html.dark .astro-code,
+html.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
 }
 
 @layer base {

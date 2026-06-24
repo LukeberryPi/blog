@@ -1,0 +1,81 @@
+---
+import "@fontsource/karla/400.css";
+import "../styles/globals.css";
+import Header from "../components/Header.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Luke Berry",
+  description = "Luke Berry's personal website",
+} = Astro.props;
+
+const footerLinks = [
+  { href: "https://github.com/LukeberryPi/blog", label: "Code" },
+  { href: "/rss.xml", label: "RSS Feed" },
+  { href: "https://x.com/LukeberryPi", label: "@LukeberryPi" },
+];
+---
+
+<html lang="en" class="min-h-screen">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script is:inline>
+      (function () {
+        try {
+          const stored = localStorage.getItem("theme");
+          const theme =
+            stored === "light" || stored === "dark" ? stored : "system";
+          const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          const isDark =
+            theme === "dark" || (theme === "system" && systemPrefersDark);
+
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.classList.toggle("dark", isDark);
+        } catch (e) {
+          document.documentElement.dataset.theme = "system";
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+          }
+        }
+      })();
+    </script>
+  </head>
+  <body class="font-karla min-h-full px-6">
+    <Header />
+    <main class="mx-auto max-w-prose pb-4">
+      <slot />
+      <ScrollToTop />
+    </main>
+    <footer
+      class="mx-auto flex max-w-prose flex-col max-sm:items-start items-center gap-2 py-6 text-sm text-zinc-500 dark:text-zinc-400"
+    >
+      <div class="flex items-center gap-4">
+        {
+          footerLinks.map((link) => (
+            <a
+              class="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
+              href={link.href}
+              target="_blank"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+      <blockquote class="text-zinc-800 dark:text-zinc-300">
+        Smile, you're alive :)
+      </blockquote>
+    </footer>
+  </body>
+</html>
