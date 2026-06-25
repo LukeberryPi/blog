@@ -35,6 +35,12 @@ html.dark .astro-code span {
     @apply min-h-screen bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200;
   }
 
+  /* Tailwind v4 defaults buttons to cursor: default; restore v3 behavior. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
   article p {
     @apply leading-relaxed text-zinc-600 dark:text-zinc-300/80;
   }

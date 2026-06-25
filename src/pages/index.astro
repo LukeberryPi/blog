@@ -80,22 +80,18 @@ const externalLinks = [
       class="flex justify-center gap-6 max-sm:flex-col-reverse sm:justify-between"
     >
       <div class="flex flex-col justify-center gap-4 max-sm:items-center">
-        <div
-          class="group -m-8 flex select-all items-center gap-3 p-8 transition-transform"
+        <button
+          id="copy-email"
+          type="button"
+          aria-label="Copy email"
+          class="group -m-8 flex items-center gap-3 p-8 text-zinc-800 transition-transform dark:text-zinc-200"
         >
           lukeberrypi@gmail.com
-          <div class="inline-flex items-center gap-3">
-            <button
-              id="copy-email"
-              type="button"
-              aria-label="Copy email"
-              class="text-zinc-800 dark:text-zinc-200"
-            >
-              <Copy data-copy-icon class="size-4" stroke-width={1.4} />
-              <Check data-check-icon class="hidden size-4" stroke-width={1.4} />
-            </button>
-          </div>
-        </div>
+          <span class="inline-flex items-center gap-3">
+            <Copy data-copy-icon class="size-4" stroke-width={1.4} />
+            <Check data-check-icon class="hidden size-4" stroke-width={1.4} />
+          </span>
+        </button>
         <span
           class="-mt-2 inline-flex w-fit items-center gap-1 rounded-full bg-green-100 px-2 py-0.5 text-sm text-green-600 ring-1 ring-green-500 dark:bg-transparent dark:text-emerald-500 dark:ring-emerald-500"
         >
@@ -119,9 +115,6 @@ const externalLinks = [
 
 <script>
   const email = "lukeberrypi@gmail.com";
-  const copyButton = document.getElementById("copy-email");
-  const copyIcon = copyButton?.querySelector<SVGElement>("[data-copy-icon]");
-  const checkIcon = copyButton?.querySelector<SVGElement>("[data-check-icon]");
   let resetTimeout: ReturnType<typeof setTimeout> | undefined;
 
   async function copyToClipboard(text: string) {
@@ -141,10 +134,18 @@ const externalLinks = [
     }
   }
 
-  copyButton?.addEventListener("click", async () => {
+  // Delegated so it keeps working when navigating back to the home page via a
+  // view transition, which recreates the #copy-email button.
+  document.addEventListener("click", async (event) => {
+    if (!(event.target instanceof Element)) return;
+    const button = event.target.closest("#copy-email");
+    if (!button) return;
+
     const copied = await copyToClipboard(email);
     if (!copied) return;
 
+    const copyIcon = button.querySelector("[data-copy-icon]");
+    const checkIcon = button.querySelector("[data-check-icon]");
     copyIcon?.classList.add("hidden");
     checkIcon?.classList.remove("hidden");
     clearTimeout(resetTimeout);

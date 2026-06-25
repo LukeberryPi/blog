@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "@fontsource/karla/400.css";
 import "../styles/globals.css";
 import Header from "../components/Header.astro";
@@ -26,28 +27,37 @@ const footerLinks = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, "https://lukeberrypi.com").href} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <ClientRouter />
     <script is:inline>
       (function () {
-        try {
-          const stored = localStorage.getItem("theme");
-          const theme =
-            stored === "light" || stored === "dark" ? stored : "system";
-          const systemPrefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)",
-          ).matches;
-          const isDark =
-            theme === "dark" || (theme === "system" && systemPrefersDark);
+        function applyStoredTheme() {
+          try {
+            const stored = localStorage.getItem("theme");
+            const theme =
+              stored === "light" || stored === "dark" ? stored : "system";
+            const systemPrefersDark = window.matchMedia(
+              "(prefers-color-scheme: dark)",
+            ).matches;
+            const isDark =
+              theme === "dark" || (theme === "system" && systemPrefersDark);
 
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.classList.toggle("dark", isDark);
-        } catch (e) {
-          document.documentElement.dataset.theme = "system";
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.documentElement.classList.add("dark");
+            document.documentElement.dataset.theme = theme;
+            document.documentElement.classList.toggle("dark", isDark);
+          } catch (e) {
+            document.documentElement.dataset.theme = "system";
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              document.documentElement.classList.add("dark");
+            }
           }
         }
+
+        applyStoredTheme();
+        // Re-apply before paint on view transitions so the swapped-in <html>
+        // doesn't flash the wrong theme.
+        document.addEventListener("astro:after-swap", applyStoredTheme);
       })();
     </script>
   </head>

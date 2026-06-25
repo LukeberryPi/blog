@@ -15,14 +15,16 @@ const navLinks = [
 ];
 ---
 
-<header class="mx-auto max-w-prose py-8 max-sm:pt-4">
+<header class="mx-auto max-w-prose py-8 max-sm:pt-4" transition:persist="header">
   <nav class="flex items-center justify-between max-sm:flex-col max-sm:gap-6">
     <a
+      data-home-link
       class={`group relative -m-12 -my-2 -mr-4 flex items-center rounded py-2 pl-12 pr-4 ${isHome ? "ring-0" : "sm:hover:ring-1"} ring-sky-500 transition-transform max-sm:text-center dark:ring-sky-600`}
       href="/"
       aria-label="Back to home"
     >
       <div
+        data-home-chevron
         class={`${isHome ? "hidden" : "absolute"} left-1 flex size-4 h-full w-12 items-center px-2`}
       >
         <ChevronLeft stroke-width={1.4} />
@@ -53,6 +55,7 @@ const navLinks = [
       {
         navLinks.map((link) => (
           <a
+            data-nav-link
             class="group relative rounded px-2 py-px sm:hover:ring-1 ring-sky-500 transition-transform dark:ring-sky-600"
             href={link.href}
             aria-label={link.ariaLabel}
@@ -101,9 +104,13 @@ const navLinks = [
     }
   }
 
-  const toggle = document.getElementById("theme-toggle");
-  toggle?.addEventListener("click", () => {
-    applyTheme(cycle[getTheme()]);
+  // Delegated so the listener survives client-side route changes, where the
+  // header DOM (and its #theme-toggle button) is swapped for a new element.
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.target.closest("#theme-toggle")) {
+      applyTheme(cycle[getTheme()]);
+    }
   });
 
   window
@@ -111,4 +118,31 @@ const navLinks = [
     .addEventListener("change", () => {
       if (getTheme() === "system") applyTheme("system");
     });
+
+  // The header is persisted across view transitions, so its DOM is reused and
+  // won't re-render the active route. Keep the indicators in sync manually.
+  function syncActiveNav() {
+    const pathname = location.pathname.replace(/\/$/, "") || "/";
+    const isHome = pathname === "/";
+
+    const homeLink = document.querySelector("[data-home-link]");
+    homeLink?.classList.toggle("ring-0", isHome);
+    homeLink?.classList.toggle("sm:hover:ring-1", !isHome);
+
+    const homeChevron = document.querySelector("[data-home-chevron]");
+    homeChevron?.classList.toggle("hidden", isHome);
+    homeChevron?.classList.toggle("absolute", !isHome);
+
+    document.querySelectorAll("[data-nav-link]").forEach((link) => {
+      const href = link.getAttribute("href") ?? "";
+      const active = pathname === href || pathname.startsWith(href + "/");
+      if (active) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  document.addEventListener("astro:page-load", syncActiveNav);
 </script>

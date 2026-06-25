@@ -19,20 +19,25 @@ import ArrowUp from "@lucide/astro/icons/arrow-up";
 </button>
 
 <script>
-  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-scroll-top]");
-
   const updateVisibility = () => {
     const visible = window.scrollY > 400;
-    buttons.forEach((button) => {
-      button.classList.toggle("opacity-100", visible);
-      button.classList.toggle("opacity-0", !visible);
-    });
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-scroll-top]")
+      .forEach((button) => {
+        button.classList.toggle("opacity-100", visible);
+        button.classList.toggle("opacity-0", !visible);
+      });
   };
 
-  buttons.forEach((button) =>
-    button.addEventListener("click", () => window.scrollTo({ top: 0 })),
-  );
+  // Delegated + re-queried so it keeps working after view transitions swap in
+  // fresh button elements.
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.target.closest("[data-scroll-top]")) {
+      window.scrollTo({ top: 0 });
+    }
+  });
 
   window.addEventListener("scroll", updateVisibility);
-  updateVisibility();
+  document.addEventListener("astro:page-load", updateVisibility);
 </script>
