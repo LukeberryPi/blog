@@ -18,7 +18,8 @@ Open [http://localhost:4321](http://localhost:4321) to see the result.
 - `bun run dev` - start the dev server
 - `bun run build` - build the static site to `dist/`
 - `bun run preview` - preview the production build locally
-- `bun run start` - serve the production build on `$PORT` (used in deployment)
+- `bun run start` - serve the production build locally on `$PORT`
+- `bun run deploy` - build and deploy to Cloudflare Workers
 
 ## Writing articles
 
@@ -35,4 +36,8 @@ location: "London, United Kingdom"
 
 ## Deployment
 
-Deployed on [Railway](https://railway.com/) using the configuration in `railway.json`: it builds with `bun run build` and serves the static output with `astro preview`.
+Hosted on Cloudflare Workers with static assets. `wrangler.jsonc` configures the `lukeberrypi-blog` Worker and both `lukeberrypi.com` and `www.lukeberrypi.com`.
+
+Run `bun run deploy` after `wrangler login` for a manual deployment. Cloudflare Workers Builds uses `bun run build` followed by `npx wrangler@4.153.0 deploy` from the repository root on pushes to `main`.
+
+DNS is hosted by Cloudflare. Existing Zoho mail, DKIM, Bluesky, and domain verification records are preserved. No application secrets or database are required.

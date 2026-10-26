@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "start": "astro preview --host 0.0.0.0 --port ${PORT:-4321}",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "bun run build && bunx wrangler@4.153.0 deploy"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
