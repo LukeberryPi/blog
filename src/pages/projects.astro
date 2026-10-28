@@ -3,7 +3,38 @@ import Layout from "../layouts/Layout.astro";
 import Globe from "@lucide/astro/icons/globe";
 import GitBranch from "@lucide/astro/icons/git-branch";
 
-const projects = [
+const projects: {
+  name: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  githubUrl?: string;
+  technologies: string;
+}[] = [
+  {
+    name: "unreleasd",
+    description:
+      "Alerts for unreleased music. DJs post the clip where they heard an unreleased track, everyone watches it, and the buy links land the day it drops. No more begging for a track ID in the comments.",
+    url: "https://unreleasd.com",
+    imageUrl: "/projects/unreleasd.png",
+    technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">TanStack Start</span><span class="rounded-full bg-[#4630EB] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Expo</span><span class="rounded-full bg-[#F38020] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Cloudflare</span></div>`,
+  },
+  {
+    name: "freeblur",
+    description:
+      "Blur faces, names and anything else you'd rather not share. Everything happens in your browser, so your images never get uploaded anywhere. Free, no sign-up.",
+    url: "https://www.freeblur.com",
+    imageUrl: "/projects/freeblur.png",
+    technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Next.js</span><span class="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">TailwindCSS</span><span class="rounded-full bg-[#F38020] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Cloudflare</span></div>`,
+  },
+  {
+    name: "DJ Scan",
+    description:
+      "A Mac app that checks your tracks and your USB stick against the decks at your gig. It catches fake 320s, dead air and files the CDJs won't read, then formats the stick the way they need it. No more surprises in the booth.",
+    url: "https://dj-scan.com",
+    imageUrl: "/projects/dj-scan.png",
+    technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-[#2B2E3A] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Electron</span><span class="rounded-full bg-[#00D8FE] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">React</span><span class="rounded-full bg-[#FF5D01] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Astro</span></div>`,
+  },
   {
     name: "css2wind",
     description:
@@ -28,7 +59,6 @@ const projects = [
       "Stop procrastinating by dealing with five tasks at a time. If you want to add more tasks you need to resolve a previous one. Surprisingly effective.",
     url: "https://phived.com",
     imageUrl: "/projects/phived.png",
-    githubUrl: "https://github.com/LukeberryPi/phived",
     technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-[#00D8FE] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">React</span><span class="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit dark:ring-1 dark:ring-zinc-500">TailwindCSS</span><span class="rounded-full bg-gradient-to-r from-[#926AFE] to-[#49C7FF] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-none dark:ring-1 dark:ring-zinc-500">Vite</span></div>`,
   },
 ];
@@ -36,15 +66,15 @@ const projects = [
 
 <Layout>
   <h1 class="mb-16 mt-4 text-center text-5xl max-sm:text-4xl">Projects</h1>
-  <div class="space-y-20">
+  <div class="relative left-1/2 grid w-[min(64rem,calc(100vw-3rem))] -translate-x-1/2 gap-8 md:grid-cols-2">
     {
       projects.map((project) => (
-        <div class="flex-col divide-y divide-zinc-400 dark:divide-zinc-500 overflow-hidden rounded ring-1 dark:zinc-500 dark:ring-zinc-500 ring-zinc-400">
-          <div class="flex items-center justify-between gap-4 p-4 max-sm:flex-col">
+        <div class="flex flex-col divide-y divide-zinc-400 dark:divide-zinc-500 overflow-hidden rounded ring-1 dark:zinc-500 dark:ring-zinc-500 ring-zinc-400">
+          <div class="flex flex-wrap items-center justify-between gap-3 p-4">
             <h2 class="text-xl">{project.name}</h2>
             <Fragment set:html={project.technologies} />
           </div>
-          <div>
+          <div class="grow">
             <p class="p-4">{project.description}</p>
           </div>
           <img
@@ -61,13 +91,15 @@ const projects = [
             >
               <Globe class="size-5" stroke-width={1.4} /> Visit website
             </a>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              class="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
-            >
-              <GitBranch class="size-5" stroke-width={1.4} /> View code
-            </a>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                class="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
+              >
+                <GitBranch class="size-5" stroke-width={1.4} /> View code
+              </a>
+            )}
           </div>
         </div>
       ))
