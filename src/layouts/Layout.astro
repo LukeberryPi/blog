@@ -15,6 +15,9 @@ const {
   description = "Luke Berry's personal website",
 } = Astro.props;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL("/og.png", Astro.site).href;
+
 const footerLinks = [
   { href: "https://github.com/LukeberryPi/blog", label: "Code" },
   { href: "/rss.xml", label: "RSS Feed" },
@@ -26,10 +29,22 @@ const footerLinks = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, "https://lukeberrypi.com").href} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Luke Berry" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Luke Berry, Software Engineer" />
+    <meta name="twitter:card" content="summary_large_image" />
     <ClientRouter />
     <script is:inline>
       (function () {
