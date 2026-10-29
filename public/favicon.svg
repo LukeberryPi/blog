@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <style>
-    /* Dropping the outline loses 2 units around every shape; scaling restores the same footprint. */
+    /* Dropping the outline loses 1.5 units around every shape; scaling restores the same footprint. */
     @media (prefers-color-scheme: dark) {
       g {
         stroke: none;
-        transform: scale(1.065);
+        transform: scale(1.05);
         transform-origin: 32px 32px;
       }
     }
   </style>
-  <g stroke="#27272a" stroke-width="4" stroke-linejoin="round">
+  <g stroke="#27272a" stroke-width="3" stroke-linejoin="round">
     <path fill="#05badd" d="M30.5 2.8 41.5 21.85H19.5Z" transform="rotate(-12 30.5 15.5)" />
     <circle fill="#ff8007" cx="50.25" cy="29.75" r="9.75" />
     <path fill="#ffb404" d="M29.75 39.25h8.5v6.5h6.5v8.5h-6.5v6.5h-8.5v-6.5h-6.5v-8.5h6.5Z" transform="rotate(55 34 50)" />
