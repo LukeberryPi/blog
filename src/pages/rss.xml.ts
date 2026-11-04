@@ -1,11 +1,9 @@
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import { getCollection } from "astro:content";
+import { getArticles } from "../lib/articles";
 
 export async function GET(context: APIContext) {
-  const articles = (await getCollection("articles")).sort((a, b) =>
-    a.data.date < b.data.date ? 1 : -1,
-  );
+  const articles = await getArticles();
 
   return rss({
     title: "Lukeberry Pi Blog",

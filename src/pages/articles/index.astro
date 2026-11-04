@@ -1,11 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import DraftBadge from "../../components/DraftBadge.astro";
+import { getArticles } from "../../lib/articles";
 import { formatShort } from "../../lib/date";
 
-const articles = (await getCollection("articles")).sort((a, b) =>
-  a.data.date < b.data.date ? 1 : -1,
-);
+const articles = await getArticles();
 ---
 
 <Layout>
@@ -24,6 +23,7 @@ const articles = (await getCollection("articles")).sort((a, b) =>
             <div class="flex gap-1 gap-x-2 max-sm:flex-col sm:items-center">
               {article.data.title}{" "}
               <span class="flex gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+                {article.data.draft && <DraftBadge />}
                 {article.data.tags?.map((tag) => <span>#{tag}</span>)}
               </span>
             </div>

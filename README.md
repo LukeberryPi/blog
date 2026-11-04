@@ -23,7 +23,17 @@ Open [http://localhost:4321](http://localhost:4321) to see the result.
 
 ## Writing articles
 
-Add a markdown file to `src/articles/` with frontmatter:
+Articles are markdown files in `src/articles/`, and drafts live there too, on `main`. An article with `draft: true` shows up in `bun run dev` with a draft badge, but production builds leave it out, so you can commit and push drafts whenever you like.
+
+- `bun run new "My title"` - start a draft at `src/articles/my-title.md` and open it in VS Code (set `BLOG_EDITOR` to use another app)
+- `bun run drafts` - list drafts, their word counts and anything left to fix
+- `bun run ship my-title` - publish a draft: sets `date` to today, removes `draft: true`, commits the file and pushes `main`, which deploys it
+
+`ship` also takes part of a slug (`bun run ship raycast`). It stops if the draft still has a `TODO`, `FIXME`, `TK` or an empty link; pass `--force` to ship anyway.
+
+To start drafts from Raycast, add `scripts/raycast` in Raycast under Settings → Extensions → Script Commands → Add Directories.
+
+Frontmatter:
 
 ```md
 ---
@@ -31,6 +41,7 @@ title: "My article"
 date: "2026-01-01"
 tags: ["technology"]
 location: "London, United Kingdom"
+draft: true
 ---
 ```
 

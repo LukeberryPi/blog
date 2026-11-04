@@ -5,15 +5,14 @@ import Copy from "@lucide/astro/icons/copy";
 import Check from "@lucide/astro/icons/check";
 import Download from "@lucide/astro/icons/download";
 import ArrowRight from "@lucide/astro/icons/arrow-right";
-import { getCollection } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
+import DraftBadge from "../components/DraftBadge.astro";
 import { projects } from "../lib/projects";
+import { getArticles } from "../lib/articles";
 import { formatShort } from "../lib/date";
 
 const [featuredProject] = projects;
-const [featuredArticle] = (await getCollection("articles")).sort((a, b) =>
-  a.data.date < b.data.date ? 1 : -1,
-);
+const [featuredArticle] = await getArticles();
 
 const externalLinks = [
   {
@@ -157,6 +156,7 @@ const externalLinks = [
         <div class="flex gap-1 gap-x-2 max-sm:flex-col sm:items-center">
           {featuredArticle.data.title}{" "}
           <span class="flex gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+            {featuredArticle.data.draft && <DraftBadge />}
             {featuredArticle.data.tags?.map((tag) => <span>#{tag}</span>)}
           </span>
         </div>

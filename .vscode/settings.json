@@ -1,3 +1,6 @@
 {
-  "editor.wordWrap": "off"
+  "editor.wordWrap": "off",
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  }
 }
