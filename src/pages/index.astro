@@ -4,6 +4,16 @@ import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
 import Copy from "@lucide/astro/icons/copy";
 import Check from "@lucide/astro/icons/check";
 import Download from "@lucide/astro/icons/download";
+import ArrowRight from "@lucide/astro/icons/arrow-right";
+import { getCollection } from "astro:content";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../lib/projects";
+import { formatShort } from "../lib/date";
+
+const [featuredProject] = projects;
+const [featuredArticle] = (await getCollection("articles")).sort((a, b) =>
+  a.data.date < b.data.date ? 1 : -1,
+);
 
 const externalLinks = [
   {
@@ -110,6 +120,51 @@ const externalLinks = [
         </a>
       </div>
     </div>
+    <section class="mt-6 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl">Projects</h2>
+        <a
+          href="/projects"
+          class="group flex items-center gap-2 text-zinc-800 underline-offset-4 sm:hover:underline dark:text-zinc-200"
+        >
+          See more
+          <ArrowRight
+            class="size-4 transition-transform sm:group-hover:translate-x-0.5"
+            stroke-width={1.4}
+          />
+        </a>
+      </div>
+      <ProjectCard project={featuredProject} />
+    </section>
+    <section class="mt-6 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl">Articles</h2>
+        <a
+          href="/articles"
+          class="group flex items-center gap-2 text-zinc-800 underline-offset-4 sm:hover:underline dark:text-zinc-200"
+        >
+          See more
+          <ArrowRight
+            class="size-4 transition-transform sm:group-hover:translate-x-0.5"
+            stroke-width={1.4}
+          />
+        </a>
+      </div>
+      <a
+        class="flex items-center justify-between rounded px-4 py-2 ring-1 ring-zinc-400 transition-transform sm:p-4 sm:hover:bg-zinc-100 dark:ring-zinc-500 sm:dark:hover:bg-zinc-800"
+        href={`/articles/${featuredArticle.id}`}
+      >
+        <div class="flex gap-1 gap-x-2 max-sm:flex-col sm:items-center">
+          {featuredArticle.data.title}{" "}
+          <span class="flex gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+            {featuredArticle.data.tags?.map((tag) => <span>#{tag}</span>)}
+          </span>
+        </div>
+        <span class="text-zinc-500 max-sm:text-sm dark:text-zinc-400">
+          {formatShort(featuredArticle.data.date)}
+        </span>
+      </a>
+    </section>
   </div>
 </Layout>
 
