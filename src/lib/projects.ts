@@ -45,7 +45,7 @@ export const projects: Project[] = [
     name: "css2wind",
     description:
       "Learn TailwindCSS by playing a minigame: there are eight CSS properties that you must translate to the equivalent TailwindCSS utility. Bet you can't get 8/8.",
-    url: "https://css2wind.com",
+    url: "https://css2wind.vercel.app",
     imageUrl: "/projects/css2wind.png",
     githubUrl: "https://github.com/LukeberryPi/css2wind",
     technologies: `<div class="flex items-center gap-x-3"><span class="rounded-full bg-[#007ACC] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">TypeScript</span><span class="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">TailwindCSS</span><span class="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 dark:ring-1 dark:ring-zinc-500">Next.js</span></div>`,

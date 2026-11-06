@@ -29,7 +29,7 @@ This was a Frontend Developer hybrid position in Malaga, exactly what I was afte
 
 This was 30 minutes where we went over introductions, some questions such as "Talk a bit about yourself and your professional experience"
 
-She asked how much experience I had with the stack (React, React Native, TypeScript and GraphQL). I mentioned that I had personal projects in production with TypeScript and React. Namely, my websites [css2wind](https://css2wind.com) and [phived](https://phived.com).
+She asked how much experience I had with the stack (React, React Native, TypeScript and GraphQL). I mentioned that I had personal projects in production with TypeScript and React. Namely, my websites [css2wind](https://css2wind.vercel.app) and [phived](https://phived.com).
 
 > Tip: Ask a question. I default to "What is the size of the developer team?" or "What is the happy path for this hiring process?" (as in, if everything works out perfectly, what will happen).
 
