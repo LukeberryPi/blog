@@ -62,6 +62,27 @@ export default defineConfig({
   },
   overrides: [
     ...(cloudflare.overrides ?? []),
+    // The preset turns these off for TypeScript; the correctness category had them on.
+    {
+      files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+      rules: {
+        "constructor-super": "error",
+        "getter-return": "error",
+        "no-class-assign": "error",
+        "no-const-assign": "error",
+        "no-dupe-class-members": "error",
+        "no-dupe-keys": "error",
+        "no-func-assign": "error",
+        "no-import-assign": "error",
+        "no-new-native-nonconstructor": "error",
+        "no-obj-calls": "error",
+        "no-setter-return": "error",
+        "no-this-before-super": "error",
+        "no-unreachable": "error",
+        "no-unsafe-negation": "error",
+        "no-with": "error",
+      },
+    },
     {
       files: ["**/*.astro"],
       globals: { Astro: "readonly" },
