@@ -77,11 +77,11 @@ const navLinks = [
 <script>
   type Theme = "system" | "light" | "dark";
 
-  const cycle: Record<Theme, Theme> = {
+  const cycle = {
     system: "light",
     light: "dark",
     dark: "system",
-  };
+  } satisfies Record<Theme, Theme>;
 
   function getTheme(): Theme {
     const stored = localStorage.getItem("theme");

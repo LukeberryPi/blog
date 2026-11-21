@@ -338,14 +338,14 @@ function fail(message: string): never {
   process.exit(1);
 }
 
-const commands: Record<string, (args: Array<string>) => Promise<void>> = {
-  new: newDraft,
-  drafts: listDrafts,
-  ship,
-};
+const commands = new Map([
+  ["new", newDraft],
+  ["drafts", listDrafts],
+  ["ship", ship],
+]);
 
 const [command = "", ...args] = process.argv.slice(2);
-const run = commands[command];
+const run = commands.get(command);
 if (!run) {
   fail('Usage: bun run new "My title" | bun run drafts | bun run ship <slug>');
 }
