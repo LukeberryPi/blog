@@ -1,7 +1,6 @@
-// Writing helpers, run through package.json:
-//   bun run new "My title"   start a draft and open it in your editor
-//   bun run drafts           list drafts and anything left to fix
-//   bun run ship <slug>      publish a draft: date it, commit it, push main
+// bun run new "My title"   start a draft and open it in your editor
+// bun run drafts           list drafts and anything left to fix
+// bun run ship <slug>      publish a draft: date it, commit it, push main
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
@@ -243,7 +242,7 @@ function field(frontmatter: string, key: string): string | undefined {
   const value = match[1];
   if (value.startsWith('"')) {
     try {
-      return JSON.parse(value);
+      return String(JSON.parse(value));
     } catch {
       return value.slice(1, -1);
     }
@@ -310,9 +309,12 @@ function slugify(title: string) {
     .replaceAll(/^-+|-+$/g, "");
 }
 
+function pad(n: number) {
+  return String(n).padStart(2, "0");
+}
+
 function today() {
   const now = new Date();
-  const pad = (n: number) => String(n).padStart(2, "0");
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
