@@ -32,7 +32,9 @@ import ArrowUp from "@lucide/astro/icons/arrow-up";
   // Delegated + re-queried so it keeps working after view transitions swap in
   // fresh button elements.
   document.addEventListener("click", (event) => {
-    if (!(event.target instanceof Element)) return;
+    if (!(event.target instanceof Element)) {
+      return;
+    }
     if (event.target.closest("[data-scroll-top]")) {
       window.scrollTo({ top: 0 });
     }

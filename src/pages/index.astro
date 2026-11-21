@@ -181,7 +181,7 @@ const externalLinks = [
       textarea.value = text;
       textarea.style.position = "fixed";
       textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
+      document.body.append(textarea);
       textarea.select();
       const success = document.execCommand("copy");
       document.body.removeChild(textarea);
@@ -192,12 +192,18 @@ const externalLinks = [
   // Delegated so it keeps working when navigating back to the home page via a
   // view transition, which recreates the #copy-email button.
   document.addEventListener("click", async (event) => {
-    if (!(event.target instanceof Element)) return;
+    if (!(event.target instanceof Element)) {
+      return;
+    }
     const button = event.target.closest("#copy-email");
-    if (!button) return;
+    if (!button) {
+      return;
+    }
 
     const copied = await copyToClipboard(email);
-    if (!copied) return;
+    if (!copied) {
+      return;
+    }
 
     const copyIcon = button.querySelector("[data-copy-icon]");
     const checkIcon = button.querySelector("[data-check-icon]");
