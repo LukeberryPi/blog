@@ -192,11 +192,8 @@ const externalLinks = [
   // Delegated so it keeps working when navigating back to the home page via a
   // view transition, which recreates the #copy-email button.
   document.addEventListener("click", async (event) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    const button = event.target.closest("#copy-email");
-    if (!button) {
+    const button = document.querySelector("#copy-email");
+    if (!button || !event.composedPath().includes(button)) {
       return;
     }
 

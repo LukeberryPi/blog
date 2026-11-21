@@ -107,10 +107,8 @@ const navLinks = [
   // Delegated so the listener survives client-side route changes, where the
   // header DOM (and its #theme-toggle button) is swapped for a new element.
   document.addEventListener("click", (event) => {
-    if (!(event.target instanceof Element)) {
-      return;
-    }
-    if (event.target.closest("#theme-toggle")) {
+    const toggle = document.querySelector("#theme-toggle");
+    if (toggle && event.composedPath().includes(toggle)) {
       applyTheme(cycle[getTheme()]);
     }
   });
