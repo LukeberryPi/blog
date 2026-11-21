@@ -35,6 +35,8 @@ export default defineConfig({
   ],
   rules: {
     ...cloudflare.rules,
+    // The preset allows mixed promise arrays; the correctness category uses the default.
+    "typescript/await-thenable": "error",
     // phived dropped these in #226; they stay off.
     "quality/no-reflect-apply": "off",
     "quality/no-reflect-get": "off",

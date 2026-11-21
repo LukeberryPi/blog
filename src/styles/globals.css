@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source not "../../tools";
+@source not "../../tools/oxlint/anti-slop";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
