@@ -9,6 +9,8 @@
     "preview": "astro preview",
     "start": "astro preview --host 0.0.0.0 --port ${PORT:-4321}",
     "astro": "astro",
+    "lint": "NODE_OPTIONS=--experimental-strip-types oxlint --deny-warnings && NODE_OPTIONS=--experimental-strip-types oxlint -c .oxlintrc.rules.json --deny-warnings tools/oxlint/anti-slop",
+    "test:lint-rules": "bun test tools/oxlint/anti-slop/rules.test.ts",
     "deploy": "bun run build && bunx wrangler@4.153.0 deploy",
     "new": "bun scripts/articles.ts new",
     "drafts": "bun scripts/articles.ts drafts",
@@ -25,10 +27,15 @@
     "vite": "^7"
   },
   "devDependencies": {
+    "@cloudflare/oxlint-config": "0.1.0",
+    "@oxlint/plugins": "1.94.0",
+    "@types/bun": "^1.4.5",
     "@types/node": "^20",
+    "oxlint": "1.94.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "tailwindcss": "^4.3.1",
+    "tsrs": "0.25.0-ts7.1.0-beta",
     "typescript": "^5"
   }
 }

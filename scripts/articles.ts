@@ -1,7 +1,6 @@
-// Writing helpers, run through package.json:
-//   bun run new "My title"   start a draft and open it in your editor
-//   bun run drafts           list drafts and anything left to fix
-//   bun run ship <slug>      publish a draft: date it, commit it, push main
+// bun run new "My title"   start a draft and open it in your editor
+// bun run drafts           list drafts and anything left to fix
+// bun run ship <slug>      publish a draft: date it, commit it, push main
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
@@ -29,15 +28,21 @@ type Article = {
 
 type Problem = { line: number; reason: string };
 
-async function newDraft(args: string[]) {
+async function newDraft(args: Array<string>) {
   const title = args.join(" ").trim() || prompt("Title:")?.trim();
-  if (!title) fail('Give it a title: bun run new "My title"');
+  if (!title) {
+    fail('Give it a title: bun run new "My title"');
+  }
 
   const slug = slugify(title);
-  if (!slug) fail(`Couldn't turn "${title}" into a file name.`);
+  if (!slug) {
+    fail(`Couldn't turn "${title}" into a file name.`);
+  }
 
   const file = join("src", "articles", `${slug}.md`);
-  if (existsSync(join(ROOT, file))) fail(`${file} already exists.`);
+  if (existsSync(join(ROOT, file))) {
+    fail(`${file} already exists.`);
+  }
 
   await writeFile(
     join(ROOT, file),
@@ -72,7 +77,7 @@ async function listDrafts() {
   printDrafts(drafts);
 }
 
-async function ship(args: string[]) {
+async function ship(args: Array<string>) {
   const force = args.includes("--force");
   // Takes a slug, part of one, or a file path from tab completion.
   const query = args
@@ -83,7 +88,9 @@ async function ship(args: string[]) {
 
   if (!query) {
     const drafts = (await readArticles()).filter((article) => article.draft);
-    if (drafts.length) printDrafts(drafts);
+    if (drafts.length) {
+      printDrafts(drafts);
+    }
     fail("Which one? bun run ship <slug> (part of the slug works too)");
   }
 
@@ -105,7 +112,9 @@ async function ship(args: string[]) {
   const published = articles.find(
     (article) => !article.draft && article.slug === query,
   );
-  if (published) fail(`"${published.title}" is already published.`);
+  if (published) {
+    fail(`"${published.title}" is already published.`);
+  }
 
   const drafts = articles.filter((article) => article.draft);
   const exact = drafts.filter((draft) => draft.slug === query);
@@ -121,7 +130,9 @@ async function ship(args: string[]) {
   }
 
   const [draft] = matches;
-  if (draft.words === 0) fail(`${draft.file} is still empty.`);
+  if (draft.words === 0) {
+    fail(`${draft.file} is still empty.`);
+  }
 
   const problems = findProblems(draft.source);
   if (problems.length && !force) {
@@ -167,7 +178,7 @@ async function ship(args: string[]) {
   );
 }
 
-function printDrafts(drafts: Article[]) {
+function printDrafts(drafts: Array<Article>) {
   console.log(`${drafts.length} ${drafts.length === 1 ? "draft" : "drafts"}\n`);
   for (const draft of drafts) {
     const problems = findProblems(draft.source);
@@ -175,7 +186,9 @@ function printDrafts(drafts: Article[]) {
       `${draft.words.toLocaleString("en")} words`,
       `started ${draft.date}`,
     ];
-    if (problems.length) details.push(`${problems.length} to fix`);
+    if (problems.length) {
+      details.push(`${problems.length} to fix`);
+    }
 
     console.log(draft.title);
     console.log(`  ${details.join(" · ")}`);
@@ -186,7 +199,7 @@ function printDrafts(drafts: Article[]) {
   }
 }
 
-async function readArticles(): Promise<Article[]> {
+async function readArticles(): Promise<Array<Article>> {
   const names = (await readdir(ARTICLES_DIR, { recursive: true })).filter(
     (name) => name.endsWith(".md"),
   );
@@ -211,7 +224,9 @@ async function readArticles(): Promise<Article[]> {
 
 function splitFrontmatter(source: string) {
   const match = source.match(FRONTMATTER);
-  if (!match) return { frontmatter: "", body: source };
+  if (!match) {
+    return { frontmatter: "", body: source };
+  }
   return { frontmatter: match[1], body: source.slice(match[0].length) };
 }
 
@@ -221,16 +236,20 @@ function field(frontmatter: string, key: string): string | undefined {
   const match = frontmatter.match(
     new RegExp(`^${key}:[ \\t]*(.*?)[ \\t]*$`, "m"),
   );
-  if (!match) return undefined;
+  if (!match) {
+    return undefined;
+  }
   const value = match[1];
   if (value.startsWith('"')) {
     try {
-      return JSON.parse(value);
+      return String(JSON.parse(value));
     } catch {
       return value.slice(1, -1);
     }
   }
-  if (value.startsWith("'")) return value.slice(1, -1).replaceAll("''", "'");
+  if (value.startsWith("'")) {
+    return value.slice(1, -1).replaceAll("''", "'");
+  }
   return value;
 }
 
@@ -242,26 +261,32 @@ function publish(source: string, date: string) {
     .filter((line) => !/^draft\s*:/.test(line));
   const dateLine = `date: "${date}"`;
   const dateIndex = lines.findIndex((line) => /^date\s*:/.test(line));
-  if (dateIndex === -1) lines.push(dateLine);
-  else lines[dateIndex] = dateLine;
+  if (dateIndex === -1) {
+    lines.push(dateLine);
+  } else {
+    lines[dateIndex] = dateLine;
+  }
   return `---\n${lines.join("\n")}\n---\n${body}`;
 }
 
 // Leftovers that shouldn't reach the live site. Code blocks are skipped.
-function findProblems(source: string): Problem[] {
-  const problems: Problem[] = [];
+function findProblems(source: string): Array<Problem> {
+  const problems: Array<Problem> = [];
   let inCodeBlock = false;
   source.split("\n").forEach((text, index) => {
     if (/^\s*(```|~~~)/.test(text)) {
       inCodeBlock = !inCodeBlock;
       return;
     }
-    if (inCodeBlock) return;
+    if (inCodeBlock) {
+      return;
+    }
 
-    const prose = text.replace(/`[^`]*`/g, "");
+    const prose = text.replaceAll(/`[^`]*`/g, "");
     const marker = prose.match(/\b(TODO|FIXME|TK)\b/);
-    if (marker)
+    if (marker) {
       problems.push({ line: index + 1, reason: `leftover ${marker[1]}` });
+    }
     if (/(?<!!)\[\s*\]\(|\]\(\s*(https?:\/\/)?\s*\)/.test(prose)) {
       problems.push({ line: index + 1, reason: "empty link" });
     }
@@ -277,16 +302,19 @@ function countWords(markdown: string) {
 function slugify(title: string) {
   return title
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "") // "Málaga" -> "Malaga"
+    .replaceAll(/[̀-ͯ]/g, "") // "Málaga" -> "Malaga"
     .toLowerCase()
-    .replace(/['’]/g, "") // "don't" -> "dont"
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .replaceAll(/['’]/g, "") // "don't" -> "dont"
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replaceAll(/^-+|-+$/g, "");
+}
+
+function pad(n: number) {
+  return String(n).padStart(2, "0");
 }
 
 function today() {
   const now = new Date();
-  const pad = (n: number) => String(n).padStart(2, "0");
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 }
 
@@ -297,7 +325,7 @@ function uncommittedFiles() {
     .map((line) => line.slice(3));
 }
 
-function git(...args: string[]) {
+function git(...args: Array<string>) {
   const result = spawnSync("git", args, { cwd: ROOT, encoding: "utf8" });
   const stdout = (result.stdout ?? "").trimEnd();
   return {
@@ -312,14 +340,15 @@ function fail(message: string): never {
   process.exit(1);
 }
 
-const commands: Record<string, (args: string[]) => Promise<void>> = {
-  new: newDraft,
-  drafts: listDrafts,
-  ship,
-};
+const commands = new Map([
+  ["new", newDraft],
+  ["drafts", listDrafts],
+  ["ship", ship],
+]);
 
 const [command = "", ...args] = process.argv.slice(2);
-const run = commands[command];
-if (!run)
+const run = commands.get(command);
+if (!run) {
   fail('Usage: bun run new "My title" | bun run drafts | bun run ship <slug>');
+}
 await run(args);

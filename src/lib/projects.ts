@@ -7,7 +7,7 @@ export type Project = {
   technologies: string;
 };
 
-export const projects: Project[] = [
+export const projects: Array<Project> = [
   {
     name: "tuble",
     description:

@@ -17,7 +17,9 @@ const SHORT_MONTHS = MONTHS.map((month) => month.slice(0, 3));
 
 function ordinalSuffix(day: number): string {
   const rem100 = day % 100;
-  if (rem100 >= 11 && rem100 <= 13) return "th";
+  if (rem100 >= 11 && rem100 <= 13) {
+    return "th";
+  }
   switch (day % 10) {
     case 1:
       return "st";
